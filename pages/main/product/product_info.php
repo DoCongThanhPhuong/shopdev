@@ -1,104 +1,114 @@
 <?php
-    $sql_product = "SELECT * FROM tblproduct  where product_id = '$_GET[product_id]' ORDER BY product_id DESC";
+    $sql_product = "SELECT * FROM tblproduct WHERE product_id = '$_GET[product_id]'";
     $query_product = mysqli_query($mysqli, $sql_product);
     $row_product = mysqli_fetch_array($query_product);
-    $sql_comment = "SELECT * FROM tblcomment,tbluser 
-    where tblcomment.product_id = '$_GET[product_id]' and tblcomment.user_id = tbluser.user_id";
+
+    $sql_comment = "SELECT * FROM tblcomment, tbluser
+                    WHERE tblcomment.product_id = '$_GET[product_id]'
+                    AND tblcomment.user_id = tbluser.user_id";
     $query_comment = mysqli_query($mysqli, $sql_comment);
 ?>
-<div>
-    <div class="container mt-4">
-        <form method="post" action="pages/main/cart/add.php?id=<?php echo $row_product['product_id']?>">
-            <h1 class="text-center">
-                <?php echo $row_product['product_name']; ?>
-            </h1>
-            <div class="row">
-                <div class="col-lg-4">
-                   <div class="card">
-                    <img src="./assets/images/products/<?php echo $row_product['product_image'];?>"
-                    style="display: inline-block; width: 100%; height: 400px; object-fit: contain; object-position: center center;"
-                    alt="<?php echo $row_product['product_name']; ?>"
-                    >
-                   </div>
-                </div>
-                <div class="col-lg-4">
-                    <h5 class="text-center mb-3">Thông tin</h5>
-                    <p>Giá: <?php echo number_format($row_product['product_price'],0,',','.')?> VND</p>
-                    <p>Hệ điều hành: <?php echo $row_product['product_os']?></p>
-                    <p>Thương hiệu: <?php echo $row_product['product_brand']?></p>
-                    <p>CPU: <?php echo $row_product['product_cpu']?></p>
-                    <p>Màn hình: <?php echo $row_product['product_screen_size']?></p>
-                    <p>Camera: <?php echo $row_product['product_camera']?></p>
-                    <p>Pin: <?php echo $row_product['product_battery']?></p>
-                    <p>Ram: <?php echo $row_product['product_ram']?></p>
-                    <p>Rom: <?php echo $row_product['product_rom']?></p>
-                    <p>Chất liệu: <?php echo $row_product['product_material']?></p>
-                    <p>Giảm giá: <?php echo -$row_product['product_discount']?>%</p>
-                    <p>Giá: <?php echo number_format($row_product['product_price'] *(100 - $row_product['product_discount'])/ 100,0,',','.')?> VND</p>
-                    <?php if (isset($_SESSION['user_id'])) {
-                        ?>
-                        <div class="form-group">
-                            <label for="quantity"><b>Số lượng:</b></label>
-                            <input type="number" class="form-control" id="quantity" name="quantity" value="1">
-                        </div>
-                        <?php if($row_product['product_quantity'] > 0 ){?>
-                        <div>
-                            <input type="submit" class="btn btn-success" name='mua' value="Thêm vào giỏ hàng">
-                        </div>
-                        <?php } else { ?>
-                            <p class="text-danger">Sản phẩm đang hết hàng!</p>
-                        <?php
-                        }
-                    }
-                    ?>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card p-3">
-                    <h5 class="text-center">Mô tả</h5>
-                    <hr>
-                    <p class="font-italic">
-                        "<?php echo $row_product['product_description']; ?>"
-                    </p>
+
+<div class="container mt-5">
+    <form method="post" action="pages/main/cart/add.php?id=<?php echo $row_product['product_id']; ?>">
+        <h2 class="text-center mb-4"><?php echo $row_product['product_name']; ?></h2>
+        <div class="row">
+            <div class="col-lg-5 mb-4">
+                <div class="card shadow-sm">
+                    <img src="./assets/images/products/<?php echo $row_product['product_image']; ?>"
+                         alt="<?php echo $row_product['product_name']; ?>"
+                         class="card-img-top"
+                         style="height: 400px; object-fit: contain;">
                 </div>
             </div>
-        </form>
-    </div>
-    <div class="container my-5">
-        <h3>Bình luận: </h3>
-        <form class="form-floating" action="pages/main/product/comment.php?product_id=<?php echo $row_product['product_id']; ?>" method="POST">
-            <?php
-                while ($row_comment = mysqli_fetch_array($query_comment)) {
-            ?>
-                    <div class="alert alert-success" role="alert">
-                    <p>
-                        <small class="font-weight-bold">
-                            <?php echo $row_comment['user_fullname']; ?>
-                        </small>
-                        <br>
-                        <small>
-                            <?php echo $row_comment['comment_time']; ?>
-                        </small>
-                    </p>
-                    <p>
-                    <?php echo $row_comment['comment_content']; ?>
-                    </p>
+
+            <div class="col-lg-7 mb-4">
+                <h6 class="mb-3">Thông số kỹ thuật</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">Hệ điều hành: <?php echo $row_product['product_os']; ?></li>
+                            <li class="list-group-item">CPU: <?php echo $row_product['product_cpu']; ?></li>
+                            <li class="list-group-item">RAM: <?php echo $row_product['product_ram']; ?> GB</li>
+                            <li class="list-group-item">ROM: <?php echo $row_product['product_rom']; ?> GB</li>
+                        </ul>
                     </div>
-                    <?php
-                }
-                ?>
-            <?php if (isset($_SESSION['user_id'])) {
-                ?>
-                <div class="form">
-                    <textarea class="form-control" placeholder="Để lại bình luận!"
-                        name="comment_content" style="height: 100px"></textarea>
-                    </br>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item">Màn hình: <?php echo $row_product['product_screen_size']; ?> inch</li>
+                            <li class="list-group-item">Độ phân giải: <?php echo $row_product['product_screen_resolution']; ?></li>
+                            <li class="list-group-item">Pin: <?php echo $row_product['product_battery']; ?> mAh</li>
+                            <li class="list-group-item">Trọng lượng: <?php echo $row_product['product_weight']; ?> kg</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="action">
-                    <input type="submit" class="btn btn-success" name='comment' value="Bình luận" style="float:right">
+
+                <h6 class="mt-4">Thông tin thêm</h6>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">Thương hiệu: <?php echo $row_product['product_brand']; ?></li>
+                    <li class="list-group-item">Chất liệu: <?php echo $row_product['product_material']; ?></li>
+                    <li class="list-group-item">Camera: <?php echo $row_product['product_camera']; ?></li>
+                </ul>
+
+                <div class="mb-3">
+                    <p>Giá gốc: <del><?php echo number_format($row_product['product_price'], 0, ',', '.'); ?> VND</del></p>
+                    <p class="text-danger">Giảm giá: <?php echo $row_product['product_discount']; ?>%</p>
+                    <p><strong>Giá sau giảm:</strong> 
+                        <span>
+                            <?php echo number_format($row_product['product_price'] * (100 - $row_product['product_discount']) / 100, 0, ',', '.'); ?> VND
+                        </span>
+                    </p>
                 </div>
-            <?php
-            }
-            ?>
-         </form>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if ($row_product['product_quantity'] > 0): ?>
+                        <div class="form-group row align-items-center">
+                            <label for="quantity" class="col-sm-3 col-form-label"><strong>Số lượng:</strong></label>
+                            <div class="col-sm-3">
+                                <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1">
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="submit" name="mua" class="btn btn-success w-100">Thêm vào giỏ hàng</button>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <p class="text-danger mt-2">Sản phẩm tạm thời hết hàng!</p>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm p-4">
+                <h6 class="mb-3">Mô tả sản phẩm</h6>
+                <p><?php echo $row_product['product_description']; ?></p>
+            </div>
+        </div>
     </div>
+
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <div class="mt-5">
+            <h6>Bình luận</h6>
+            <?php while ($row_comment = mysqli_fetch_array($query_comment)): ?>
+                <div class="alert alert-light border">
+                    <p class="mb-1">
+                        <strong><?php echo $row_comment['user_fullname']; ?></strong>
+                        <small class="text-muted ml-2"><?php echo $row_comment['comment_time']; ?></small>
+                    </p>
+                    <p class="mb-0"><?php echo $row_comment['comment_content']; ?></p>
+                </div>
+            <?php endwhile; ?>
+
+            <form action="pages/main/product/comment.php?product_id=<?php echo $row_product['product_id']; ?>" method="POST" class="mt-3">
+                <div class="form-group">
+                    <textarea name="comment_content" class="form-control" placeholder="Để lại bình luận..." rows="3" required></textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button type="submit" name="comment" class="btn btn-primary">Bình luận</button>
+                </div>
+            </form>
+        </div>
+    <?php endif; ?>
 </div>

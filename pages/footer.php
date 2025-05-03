@@ -4,10 +4,7 @@
             <div class="col-md-5 col-sm-5">
                 <h4 class="text-light">Địa chỉ</h4>
                 <p class="pt-2 text-light">
-                    <i>Thứ 2 đến Chủ nhật: 6h đến 23h</i>
-                </p>
-                <p class="pt-2 text-light">
-                    <i>Địa chỉ: Nguyên Xá, Minh Khai, Bắc Từ Liêm, Hà Nội</i>
+                    <i>Thứ 2 đến Chủ nhật: 7h đến 22h</i>
                 </p>
                 <p class="pt-2 text-light">
                     <i>Email: shopdev@gmail.com</i>

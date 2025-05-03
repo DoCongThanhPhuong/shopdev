@@ -12,9 +12,9 @@ if (isset($_POST['submit'])) {
   if (isset($_POST['submit']) && $_POST['username'] != "" && $_POST['password'] != "" && $_POST['password-repeat'] != "" && $_POST['email'] != "" && $_POST['fullname'] != "" && $_POST['address'] != "" && $_POST['phonenumber'] != "") {
     if ($password != $password_repeat) {
       $check_register = "Mật khẩu nhập lại không khớp!";
-    } else if (!preg_match($pattern, $email, $matchs))
+    } elseif (!preg_match($pattern, $email, $matchs))
       $check_register = "Email không hợp lệ!";
-    else if (!preg_match("/^[0-9]{10,12}$/", $phonenumber))
+    elseif (!preg_match("/^[0-9]{10,12}$/", $phonenumber))
       $check_register = "Số điện thoại không hợp lệ!";
     else {
       $sql_add = "INSERT INTO tbluser(user_loginname,user_password,user_email,user_fullname,user_address,user_phone,user_created_date)

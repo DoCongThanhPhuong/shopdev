@@ -66,7 +66,7 @@
                                 <li>
                                     <a href="?product=product_list">Danh sách sản phẩm</a>
                                 </li>
-                                <li><a href="?cat=cat_list">Danh mục</a></li>
+                                <li><a href="?cat=cat_list"> Quản lý danh mục</a></li>
                             </ul>
                         </li>
                         <li class="nav-link">

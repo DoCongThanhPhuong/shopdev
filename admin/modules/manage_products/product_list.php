@@ -33,7 +33,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                        <th>No.</th>
+                        <th>#</th>
                         <th>Tên sản phẩm</th>
                         <th>Số lượng</th>
                         <th>Hình ảnh</th>
@@ -62,7 +62,7 @@
                                 <td><?php echo number_format($row['product_price'],0,',','.');?></td>
                                 <td><?php echo $row['product_discount'];?>%</td>
                                 <td>
-                                    <a href="?product=update_product&id=<?php echo $row['product_id'];?>">Update</a>
+                                    <a href="?product=update_product&id=<?php echo $row['product_id'];?>" class="btn btn-warning btn-sm rounded text-white" type="button"><i class="fa fa-edit"></i></a>
                                 </td>
                             </tbody>
                         <?php

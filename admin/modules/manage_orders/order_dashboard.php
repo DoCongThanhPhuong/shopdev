@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col">
                 <div class="card text-white bg-primary mb-3" style="max-width: 18rem; height: 120px;">
-                <div class="card-header">GROSS REVENUE</div>
+                <div class="card-header">DOANH THU</div>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo number_format($AllMoney,0,',','.') ?> VND</h5>
                 </div>
@@ -25,32 +25,32 @@
         </div>
         <div class="col">
             <div class="card text-white bg-success mb-3" style="max-width: 18rem; height: 120px;">
-                <div class="card-header">APPOVED ORDERS</div>
+                <div class="card-header">ĐƠN HÀNG ĐÃ DUYỆT</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php  echo $CountOrder1 ?></h5>
+                    <h5 class="card-title"><?php echo $CountOrder1 ?></h5>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card text-white bg-danger mb-3" style="max-width: 18rem; height: 120px;">
-                <div class="card-header">ORDER PENDING APPROVAL</div>
+                <div class="card-header">ĐƠN HÀNG CHỜ DUYỆT</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php  echo $CountOrder2 ?></h5>
+                    <h5 class="card-title"><?php echo $CountOrder2 ?></h5>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="card text-white bg-dark mb-3" style="max-width: 18rem; height: 120px;">
-                <div class="card-header">CANCELED ORDER</div>
+                <div class="card-header">ĐƠN HÀNG ĐÃ HỦY</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php  echo $CountOrder3 ?></h5>
+                    <h5 class="card-title"><?php echo $CountOrder3 ?></h5>
                 </div>
             </div>
     </div>
 </div>
     <div class="card">
         <p class="card-header font-weight-bold">
-            ĐƠN HÀNG CHỜ DUYỆT
+            Đơn hàng chờ duyệt
         </p>
         <div class="card-body">
             <table class="table table-striped">
@@ -68,7 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     $i=0;
                     while($row=mysqli_fetch_array($sql_CountOrder2)){
                     $i++;?>

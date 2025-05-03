@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
       <table cellpadding="5px" class="table-bordered w-100 bg-white">
         <thead>
           <tr class="text-center">
-            <th scope="col">No.</th>
+            <th scope="col">#</th>
             <th scope="col">ID</th>
             <th scope="col">Receiver</th>
             <th scope="col">Created time</th>
@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id'])) {
         while($row_getOrder = mysqli_fetch_array($query_getOrder)){
           $i++;
           if($row_getOrder['order_status'] == 0) {$status = "Pending approval"; $style = "text-warning";}
-          else if($row_getOrder['order_status'] == 1) {$status = "Approved"; $style = "text-success";}
+          elseif($row_getOrder['order_status'] == 1) {$status = "Approved"; $style = "text-success";}
           else {$status = "Cancelled"; $style = "text-danger";}
         ?>
             <td><?php echo $i ?></td>

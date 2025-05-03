@@ -10,9 +10,9 @@
     $TransactionNo=$_GET['vnp_TransactionNo'];
     $order_code = $_SESSION['order_code'];
     $insert_vnpay = "INSERT INTO tblvnpay (Amount, BankCode, BankTranNo, CardType, OrderInfo, PayDate, TmnCode, TransactionNo, order_code)
-    VALUES ('".$Amount."', '".$BankCode."', '".$BankTranNo."', '".$CardType."', '".$OrderInfo."', '".$PayDate."', '".$TmnCode."', '".$TransactionNo."', $order_code)";
+    VALUES ('".$Amount."', '".$BankCode."', '".$BankTran#"', '".$CardType."', '".$OrderInfo."', '".$PayDate."', '".$TmnCode."', '".$Transaction#"', $order_code)";
     $query_insert = mysqli_query($mysqli, $insert_vnpay);
-  } else if (isset($_GET['partnerCode'])) {
+  } elseif (isset($_GET['partnerCode'])) {
 		$order_code = rand(1, 10000);
 		$partnerCode = $_GET['partnerCode'];
 		$orderId = $_GET['orderId'];

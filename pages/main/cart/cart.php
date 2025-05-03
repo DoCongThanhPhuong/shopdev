@@ -23,7 +23,7 @@
             <table class="bg-white table-bordered w-100" cellpadding="5px">
               <thead>
               <tr class="text-center">
-                <th scope="col">No.</th>
+                <th scope="col">#</th>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
                 <th scope="col">Số lượng</th>

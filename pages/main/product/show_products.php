@@ -24,7 +24,7 @@
       <div class="col-lg-2 col-sm-12 sidebar">
         <?php include('pages/main/product/sidebar.php')?>
       </div>
-      <div class="container-fluid col-lg-10 col-sm-12">
+      <div class="container-fluid col-lg-10 col-sm-12 mt-4">
         <div class="row min-height-100">
         <?php
         while($row_product = mysqli_fetch_array($query_product)){

@@ -37,7 +37,7 @@
             <td colspan="4">Ghi chú: <?php echo $_SESSION['order_notes'] ?></td>
           </tr>
             <tr class="text-center">
-              <th scope="col">No.</th>
+              <th scope="col">#</th>
               <th scope="col">Tên sản phẩm</th>
               <th scope="col">Số lượng</th>
               <th scope="col">Giá</th>

@@ -1,24 +1,32 @@
 <?php
-  $user_id = $_SESSION['user_id'];
-  $sql_Cus = "SELECT * FROM tbluser WHERE user_id = $user_id LIMIT 1";
-  $query_Cus = mysqli_query($mysqli, $sql_Cus);
-  $row = mysqli_fetch_array($query_Cus);
-  if (isset($_POST['save']) && $_POST['old-password'] != "" && $_POST['new-password'] != "" && $_POST['new-password-repeat'] != "")
-  {
-    $oldPassword = md5($_POST['old-password']);
-    $newPassword = md5($_POST['new-password']);
-    $newPasswordRepeat = md5($_POST['new-password-repeat']);
-    $user_password = $row['user_password'];
-    if ($oldPassword != $user_password)
-      echo "<script>alert(\"Mật khẩu hiện tại không chính xác!\")</script>";
-    else if ($newPassword != $newPasswordRepeat)
-      echo "<script>alert(\"Mật khẩu nhập lại không khớp!\")</script>";
-    else {
-      $sql_add = "UPDATE tbluser set user_password = '" . $newPassword . "' WHERE user_id= '$user_id'";
-      mysqli_query($mysqli, $sql_add);
-      echo "<script>alert(\"Đổi mật khẩu thành công!\")</script>";
-    }
+$user_id = $_SESSION['user_id'] ?? null;
+
+if (!$user_id) {
+  exit("Người dùng chưa đăng nhập.");
+}
+
+$sql = "SELECT user_password FROM tbluser WHERE user_id = $user_id LIMIT 1";
+$result = mysqli_query($mysqli, $sql);
+$row = mysqli_fetch_assoc($result);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save'])) {
+  $oldPassword = trim($_POST['old-password'] ?? '');
+  $newPassword = trim($_POST['new-password'] ?? '');
+  $newPasswordRepeat = trim($_POST['new-password-repeat'] ?? '');
+
+  if (!$oldPassword || !$newPassword || !$newPasswordRepeat) {
+    echo "<script>alert('Vui lòng điền đầy đủ thông tin!');</script>";
+  } elseif (md5($oldPassword) !== $row['user_password']) {
+    echo "<script>alert('Mật khẩu hiện tại không chính xác!');</script>";
+  } elseif ($newPassword !== $newPasswordRepeat) {
+    echo "<script>alert('Mật khẩu nhập lại không khớp!');</script>";
+  } else {
+    $newPasswordMd5 = md5($newPassword);
+    $updateSql = "UPDATE tbluser SET user_password = '$newPasswordMd5' WHERE user_id = $user_id";
+    mysqli_query($mysqli, $updateSql);
+    echo "<script>alert('Đổi mật khẩu thành công!');</script>";
   }
+}
 ?>
 <div class="container">
   <div class="card bg-light pt-3 pb-3 my-5">

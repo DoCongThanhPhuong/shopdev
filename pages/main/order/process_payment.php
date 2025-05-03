@@ -39,7 +39,7 @@
 		$delete_result = mysqli_query($mysqli, $sql_delete_all_products);
 		unset($_SESSION['total_value']);
 		header('location: ../../../index.php?navigate=finish');
-    } else if(isset($_POST['vnpay'])) {
+    } elseif (isset($_POST['vnpay'])) {
 		$order_code = rand(1, 10000);
 		$_SESSION['order_code'] = $order_code;
 		$vnp_TxnRef = $order_code; //Mã giao dịch thanh toán tham chiếu của merchant
@@ -84,7 +84,7 @@
 
 		$vnp_Url = $vnp_Url . "?" . $query;
 		if (isset($vnp_HashSecret)) {
-			$vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
+			$vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);
 			$vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
 			$order_payment = 'vnpay';
 			$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_time,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_time."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";

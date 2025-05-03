@@ -32,7 +32,7 @@
             <td colspan="2">Phương thức thanh toán: <?= $row['order_payment']?></td>
         </tr>
         <tr>
-            <th>No.</th>
+            <th>#</th>
             <th>Tên sản phẩm</th>
             <th>Số lượng</th>
             <th>Giá</th>

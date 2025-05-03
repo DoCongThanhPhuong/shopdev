@@ -1,4 +1,4 @@
-<?php 
+<?php
     $sql_category_products="SELECT * FROM tblcategory ORDER BY category_id ASC";
     $query_category_products=mysqli_query($mysqli,$sql_category_products);
     if (isset($_GET['delete_id'])) {
@@ -8,8 +8,8 @@
 		if($row_count == 0){
 			$sql_delete = "DELETE FROM tblcategory where tblcategory.category_id = '".$_GET['delete_id']."'";
 			mysqli_query($mysqli, $sql_delete);
-		} else {	
-            echo "<script>alert(\"Unable to delete\")</script>";
+		} else {
+            echo "<script>alert(\"Danh mục này có sản phẩm, không thể xóa\")</script>";
 		}
 	}
 ?>
@@ -18,15 +18,15 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header font-weight-bold">
-                    Add a category
+                    Thêm danh mục
                 </div>
                 <div class="card-body">
                     <form action="modules/manage_categories/add_cat.php" method="POST">
                         <div class="form-group">
-                            <label for="category_name">Category name:</label>
+                            <label for="category_name">Tên danh mục:</label>
                             <input class="form-control" type="text" name="category_name" id="category_name" required>
                         </div>
-                        <input type="submit" class="btn btn-success" name="add" value="Add">
+                        <input type="submit" class="btn btn-success" name="add" value="Thêm">
                     </form>
                 </div>
             </div>
@@ -34,15 +34,15 @@
         <div class="col-8">
             <div class="card">
                 <div class="card-header font-weight-bold">
-                    List of categories
+                    Danh sách danh mục
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Edit/Delete</th>
+                                <th scope="col">Tên danh mục</th>
+                                <th scope="col">Sửa/Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,11 +53,11 @@
                                     <td><?php echo $row_category_products['category_id']?></td>
                                     <td><?php echo $row_category_products['category_name']?></td>
                                     <td class="d-flex">
-                                        <a href="?cat=change_cat_name&id=<?php echo $row_category_products['category_id']?>" class="btn btn-success btn-sm text-white mr-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="?cat=change_cat_name&id=<?php echo $row_category_products['category_id']?>" class="btn btn-warning btn-sm text-white mr-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                         <a href="?cat=cat_list&delete_id=<?php echo $row_category_products['category_id']?>" class="btn btn-danger btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
-                            <?php } ?>     
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
