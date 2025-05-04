@@ -5,7 +5,7 @@
 	$user_id = $_SESSION['user_id'];
 	$cart_id = $_SESSION['cart_id'];
     date_default_timezone_set('Asia/Ho_Chi_Minh');
-	$order_created_time = date("Y-m-d H:i:s");
+	$order_created_at = date("Y-m-d H:i:s");
     $order_receiver = $_SESSION['order_receiver'];
     $order_address = $_SESSION['order_address'];
 	$order_value = $_SESSION['total_value'];
@@ -14,7 +14,7 @@
     if(isset($_POST['cod'])){
 		$order_payment = 'cod';
 		$order_code = rand(1, 10000);
-		$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_time,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_time."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
+		$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
 		$insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
 		$order_id = mysqli_insert_id($mysqli);
 		$_SESSION['order_id'] = $order_id;
@@ -87,7 +87,7 @@
 			$vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);
 			$vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
 			$order_payment = 'vnpay';
-			$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_time,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_time."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
+			$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
 			$insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
 			$order_id = mysqli_insert_id($mysqli);
 			$_SESSION['order_id'] = $order_id;

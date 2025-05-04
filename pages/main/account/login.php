@@ -2,8 +2,8 @@
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-    $sql_login = "SELECT * FROM tbluser WHERE 
-    user_loginname = '$username' AND user_password = '$password' AND user_enabled = 1 LIMIT 1";
+    $sql_login = "SELECT * FROM tbluser WHERE
+    user_loginname = '$username' AND user_password = '$password' AND user_is_active = 1 AND user_is_admin = 0";
     $query_login = mysqli_query($mysqli, $sql_login);
     $count = mysqli_num_rows($query_login);
     $row = mysqli_fetch_array($query_login);

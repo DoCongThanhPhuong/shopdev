@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
   $fullname = $_POST['fullname'];
   $address = $_POST['address'];
   $phonenumber = $_POST['phonenumber'];
-  $created_date = date("Y-m-d H:i:s");
+  $created_at = date("Y-m-d H:i:s");
   $pattern = "/^[A-Za-z0-9_.]{6,32}@([a-zA-Z0-9]{2,12})(.[a-zA-Z]{2,12})+$/";
   if (isset($_POST['submit']) && $_POST['username'] != "" && $_POST['password'] != "" && $_POST['password-repeat'] != "" && $_POST['email'] != "" && $_POST['fullname'] != "" && $_POST['address'] != "" && $_POST['phonenumber'] != "") {
     if ($password != $password_repeat) {
@@ -17,8 +17,8 @@ if (isset($_POST['submit'])) {
     elseif (!preg_match("/^[0-9]{10,12}$/", $phonenumber))
       $check_register = "Số điện thoại không hợp lệ!";
     else {
-      $sql_add = "INSERT INTO tbluser(user_loginname,user_password,user_email,user_fullname,user_address,user_phone,user_created_date)
-      VALUES('" . $username . "','" . md5($password) . "','" . $email . "','" . $fullname . "','" . $address . "','" . $phonenumber . "','" . $created_date . "')";
+      $sql_add = "INSERT INTO tbluser(user_loginname,user_password,user_email,user_fullname,user_address,user_phone,user_created_at)
+      VALUES('" . $username . "','" . md5($password) . "','" . $email . "','" . $fullname . "','" . $address . "','" . $phonenumber . "','" . $created_at . "')";
       mysqli_query($mysqli, $sql_add);
       $user_id = mysqli_insert_id($mysqli);
       $sql_insert_cart = "INSERT INTO tblcart(user_id) VALUES (" . $user_id . ")";

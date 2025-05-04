@@ -38,7 +38,7 @@
                 <td><?php echo $row_order['order_id']?></td>
                 <td><?php echo $row_order['user_id']?></td>
                 <td><?php echo $row_order['order_phone']?></td>
-                <td><?php echo $row_order['order_created_time']?></td>
+                <td><?php echo $row_order['order_created_at']?></td>
                 <td><?php echo number_format($row_order['order_value'],0,',','.')?> VND</td>
                 <td><a href="?order=order_details&id=<?php echo $row_order['order_id']?>">Chi tiết</a></td>
             </tr>

@@ -1,5 +1,5 @@
 <?php
-    $sql_user="SELECT * FROM tbluser where user_enabled = 1 ORDER BY user_id DESC";
+    $sql_user="SELECT * FROM tbluser where user_is_deleted = 0 and user_is_admin = 0 ORDER BY user_id DESC";
     $query_user=mysqli_query($mysqli,$sql_user);
 ?>
 <div id="content" class="container-fluid">
@@ -31,7 +31,7 @@
                         <td><?php echo $row_user['user_fullname'] ?></td>
                         <td><?php echo $row_user['user_address'] ?></td>
                         <td><?php echo $row_user['user_phone'] ?></td>
-                        <td><?php echo $row_user['user_created_date'] ?></td>
+                        <td><?php echo $row_user['user_created_at'] ?></td>
                         <td><?php echo $row_user['user_loginname'] ?></td>
                         <td class="d-flex">
                             <a href="?user=change_user_info&id=<?php echo $row_user['user_id']?>" class="btn btn-warning btn-sm rounded text-white mr-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>

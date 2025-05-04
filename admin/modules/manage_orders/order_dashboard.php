@@ -81,7 +81,7 @@
                         <td><?php echo number_format($row['order_value'],0,',','.')?> VND</td>
                         <td><a href="#"><?php echo $row['order_phone']?></a></td>
                         <td><?php echo $row['order_address']?></td>
-                        <td><?php echo $row['order_created_time']?></td>
+                        <td><?php echo $row['order_created_at']?></td>
                         <td><?php echo $row['order_payment']?></td>
                         <td>
                             <a href="modules/manage_orders/process_order.php?process=approve&id=<?php echo $row['order_id']?>" class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-check-square"></i></a>

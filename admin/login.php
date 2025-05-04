@@ -5,13 +5,13 @@
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-    $sql_getName = "SELECT * FROM tbladmin WHERE admin_loginname = '$username' LIMIT 1";
+    $sql_getName = "SELECT * FROM tbluser WHERE user_loginname = '$username' LIMIT 1";
     $query_getName = mysqli_query($mysqli, $sql_getName);
     $row_getName = mysqli_fetch_array($query_getName);
     if ($username == '' || $password == '') {
       $checkLogin = 'Vui lòng nhập đầy đủ thông tin!';
     } else {
-      $sql_login = mysqli_query($mysqli, "SELECT * FROM tbladmin WHERE admin_loginname = '$username' AND admin_password = '$password' LIMIT 1");
+      $sql_login = mysqli_query($mysqli, "SELECT * FROM tbluser WHERE user_loginname = '$username' AND user_password = '$password' and user_is_admin = 1");
       $count = mysqli_num_rows($sql_login);
       if ($count > 0) {
         $_SESSION['admin'] = $username;

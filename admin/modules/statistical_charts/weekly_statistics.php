@@ -6,12 +6,12 @@
     $subdays3 = Carbon::now('Asia/Ho_Chi_Minh')->subDays(7)->toDateString();
     $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
     $sql3 = "SELECT 
-    DATE(order_created_time) AS NgayDat,
+    DATE(order_created_at) AS NgayDat,
     COUNT(*) AS DonHang,
     SUM(order_value) AS DoanhThu FROM
     tblorder WHERE order_status = '1' AND
-    DATE(order_created_time) BETWEEN '$subdays3' AND '$now'
-    GROUP BY DATE(order_created_time)";
+    DATE(order_created_at) BETWEEN '$subdays3' AND '$now'
+    GROUP BY DATE(order_created_at)";
     $sql_query3 = mysqli_query($mysqli, $sql3);
     while($val3 = mysqli_fetch_array($sql_query3)) {
         $chart_data3[] = array (

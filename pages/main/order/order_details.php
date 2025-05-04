@@ -1,6 +1,6 @@
 <?php
     $order_id = isset($_GET['id']) ? $_GET['id'] : '';
-    $sql_order = "SELECT order_receiver, order_phone, order_phone, order_created_time,
+    $sql_order = "SELECT order_receiver, order_phone, order_phone, order_created_at,
         order_notes, order_code, order_payment, order_value, order_status 
         from tblorder where order_id = $order_id";
     $query_order = mysqli_query($mysqli, $sql_order);
@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td colspan="2">Địa chỉ: <?= $row['order_phone']?></td>
-            <td colspan="2">Thời gian tạo: <?= $row['order_created_time']?></td>
+            <td colspan="2">Thời gian tạo: <?= $row['order_created_at']?></td>
         </tr>
         <tr>
             <td colspan="4">Ghi chú: <?= $row['order_notes']?></td>

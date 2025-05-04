@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td colspan="2">Địa chỉ: <?= $row['order_address']?></td>
-            <td colspan="2">Thời gian tạo: <?= $row['order_created_time']?></td>
+            <td colspan="2">Thời gian tạo: <?= $row['order_created_at']?></td>
         </tr>
         <tr>
             <td colspan="4">Ghi chú: <?= $row['order_notes']?></td>

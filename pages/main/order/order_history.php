@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id'])) {
             <td><?php echo $i ?></td>
             <td><?php echo $row_getOrder['order_id']; ?></td> 
             <td><?php echo $row_getOrder['order_receiver']; ?></td> 
-            <td><?php echo $row_getOrder['order_created_time']; ?></td> 
+            <td><?php echo $row_getOrder['order_created_at']; ?></td> 
             <td><?php echo number_format($row_getOrder['order_value'], 0, ',', '.'); ?> VND</td>
             <td class="<?php echo $style?>"><?php echo $status; ?></td>
             <td>
