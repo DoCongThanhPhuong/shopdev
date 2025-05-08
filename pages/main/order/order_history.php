@@ -9,17 +9,17 @@ if (isset($_SESSION['user_id'])) {
 <div class="container min-height-100">
   <div class="row">
     <div class="col-md-12 mt-3">
-      <h2 class="text-center">List of orders</h2>
+      <h5 class="text-center">Danh sách đơn hàng</h5>
       <table cellpadding="5px" class="table-bordered w-100 bg-white">
         <thead>
           <tr class="text-center">
             <th scope="col">#</th>
             <th scope="col">ID</th>
-            <th scope="col">Receiver</th>
-            <th scope="col">Created time</th>
-            <th scope="col">Value</th> 
-            <th scope="col">Status</th>
-            <th scope="col">Details</th> 
+            <th scope="col">Người nhận</th>
+            <th scope="col">Thời gian</th>
+            <th scope="col">Giá trị</th> 
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Chi tiết</th> 
           </tr>
         </thead>
         <tbody>
@@ -28,9 +28,9 @@ if (isset($_SESSION['user_id'])) {
           $i=0;
         while($row_getOrder = mysqli_fetch_array($query_getOrder)){
           $i++;
-          if($row_getOrder['order_status'] == 0) {$status = "Pending approval"; $style = "text-warning";}
-          elseif($row_getOrder['order_status'] == 1) {$status = "Approved"; $style = "text-success";}
-          else {$status = "Cancelled"; $style = "text-danger";}
+          if($row_getOrder['order_status'] == 0) {$status = "Chờ duyệt"; $style = "text-warning";}
+          elseif($row_getOrder['order_status'] == 1) {$status = "Đã duyệt"; $style = "text-success";}
+          else {$status = "Đã hủy"; $style = "text-danger";}
         ?>
             <td><?php echo $i ?></td>
             <td><?php echo $row_getOrder['order_id']; ?></td> 
@@ -39,7 +39,7 @@ if (isset($_SESSION['user_id'])) {
             <td><?php echo number_format($row_getOrder['order_value'], 0, ',', '.'); ?> VND</td>
             <td class="<?php echo $style?>"><?php echo $status; ?></td>
             <td>
-              <a href="index.php?navigate=order_details&id=<?php echo $row_getOrder['order_id']?>">View</a>
+              <a href="index.php?navigate=order_details&id=<?php echo $row_getOrder['order_id']?>"><i class="fas fa-eye"></i></a>
             </td>
       </tbody>
       <?php

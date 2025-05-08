@@ -47,12 +47,7 @@
                 <?php } else { ?>
                     <h6><?php echo number_format($row_product['product_price'], 0, ',', '.'); ?> VND</h6>
                 <?php } ?>
-
-                <?php if (isset($_SESSION['user_id'])) { ?>
-                    <input type="submit" class="btn btn-info" name='submit' value="Mua">
-                <?php } else { ?>
-                    <input type="submit" class="btn btn-info" name='submit' value="Xem chi tiết">
-                <?php } ?>
+                <input type="submit" class="btn btn-info" name='submit' value="Xem chi tiết">
             </div>
           </div>
         </form>

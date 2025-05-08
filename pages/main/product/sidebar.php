@@ -3,7 +3,6 @@
   $query_getList= mysqli_query($mysqli, $sql_getList);
 ?>
 <div class="text-white" >
-  <p><i class="fas fa-list"></i> Danh mục</p>
   <ul class="list-unstyled">
     <?php
       while ($row_getList= mysqli_fetch_array($query_getList)) {

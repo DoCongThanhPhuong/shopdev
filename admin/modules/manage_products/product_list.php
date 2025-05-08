@@ -39,7 +39,7 @@
                         <th>Hình ảnh</th>
                         <th>Giá</th>
                         <th>Giảm giá</th>
-                        <th>Cập nhật</th>
+                        <th>Thao tác</th>
                     </tr>
                 </thead>
                         <?php
@@ -63,6 +63,7 @@
                                 <td><?php echo $row['product_discount'];?>%</td>
                                 <td>
                                     <a href="?product=update_product&id=<?php echo $row['product_id'];?>" class="btn btn-warning btn-sm rounded text-white" type="button"><i class="fa fa-edit"></i></a>
+                                    <a href="?product=update_product&id=<?php echo $row['product_id'];?>" class="mt-2 btn btn-danger btn-sm rounded text-white" type="button"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tbody>
                         <?php

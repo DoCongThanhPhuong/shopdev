@@ -36,8 +36,7 @@ if (isset($_POST['submit'])) {
         <div class="card-body p-md-5">
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
+              <p class="text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
               <p class="text-center text-danger">
                 <?php if (isset($check_register)) {
                   echo $check_register;
@@ -50,7 +49,7 @@ if (isset($_POST['submit'])) {
                     <i class="fa fa-user fa-lg me-3 fa-fw"></i>
                   </label>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="text" id="fullname" class="form-control" required name="fullname" placeholder="Fullname"/>
+                    <input type="text" id="fullname" class="form-control" required name="fullname" placeholder="Họ tên"/>
                   </div>
                 </div>
 
@@ -59,7 +58,7 @@ if (isset($_POST['submit'])) {
                   <i class="fa fa-home fa-lg me-3 fa-fw"></i>
                 </label>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="text" id="address" class="form-control" required name="address" placeholder="Address"/>
+                    <input type="text" id="address" class="form-control" required name="address" placeholder="Địa chỉ"/>
                   </div>
                 </div>
 
@@ -77,7 +76,7 @@ if (isset($_POST['submit'])) {
                   <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
                 </label>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="text" id="phonenumber" class="form-control" required name="phonenumber" placeholder="Phone number"/>
+                    <input type="text" id="phonenumber" class="form-control" required name="phonenumber" placeholder="Số điện thoại"/>
                   </div>
                 </div>
 
@@ -86,7 +85,7 @@ if (isset($_POST['submit'])) {
                   <i class="fa fa-user-circle fa-lg me-3 fa-fw"></i>
                 </label>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="text" id="loginname" class="form-control" required name="username" placeholder="Login name"/>
+                    <input type="text" id="loginname" class="form-control" required name="username" placeholder="Tên đăng nhập"/>
                   </div>
                 </div>
 
@@ -95,7 +94,7 @@ if (isset($_POST['submit'])) {
                   <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                 </label>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="password" id="password" class="form-control" required name="password" placeholder="Password"/>
+                    <input type="password" id="password" class="form-control" required name="password" placeholder="Mật khẩu"/>
                   </div>
                 </div>
 
@@ -104,7 +103,7 @@ if (isset($_POST['submit'])) {
                   <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                 </label>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="password" id="password-repeat" class="form-control" required name="password-repeat" placeholder="Re-enter your password"/>
+                    <input type="password" id="password-repeat" class="form-control" required name="password-repeat" placeholder="Nhập lại mật khẩu"/>
                   </div>
                 </div>
 
@@ -114,7 +113,6 @@ if (isset($_POST['submit'])) {
               </form>
             </div>
             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
               <img src="./assets/images/banners/signup.png"
                 class="img-fluid" alt="Ảnh đăng ký">
             </div>

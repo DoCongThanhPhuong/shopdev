@@ -11,7 +11,7 @@
 
 <div class="container mt-5">
     <form method="post" action="pages/main/cart/add.php?id=<?php echo $row_product['product_id']; ?>">
-        <h2 class="text-center mb-4"><?php echo $row_product['product_name']; ?></h2>
+        <h5 class="text-center mb-4"><?php echo $row_product['product_name']; ?></h5>
         <div class="row">
             <div class="col-lg-5 mb-4">
                 <div class="card shadow-sm">
@@ -50,7 +50,7 @@
                     <li class="list-group-item">Camera: <?php echo $row_product['product_camera']; ?></li>
                 </ul>
 
-                <div class="mb-3">
+                <div class="my-2">
                     <p>Giá gốc: <del><?php echo number_format($row_product['product_price'], 0, ',', '.'); ?> VND</del></p>
                     <p class="text-danger">Giảm giá: <?php echo $row_product['product_discount']; ?>%</p>
                     <p><strong>Giá sau giảm:</strong> 
@@ -68,7 +68,7 @@
                                 <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1">
                             </div>
                             <div class="col-sm-6">
-                                <button type="submit" name="mua" class="btn btn-success w-100">Thêm vào giỏ hàng</button>
+                                <button type="submit" name="mua" class="btn btn-success"><i class="fas fa-cart-plus"></i></button>
                             </div>
                         </div>
                     <?php else: ?>
@@ -79,7 +79,7 @@
         </div>
     </form>
 
-    <div class="row mt-5">
+    <div class="row my-5">
         <div class="col-12">
             <div class="card shadow-sm p-4">
                 <h6 class="mb-3">Mô tả sản phẩm</h6>
@@ -106,7 +106,7 @@
                     <textarea name="comment_content" class="form-control" placeholder="Để lại bình luận..." rows="3" required></textarea>
                 </div>
                 <div class="form-group text-right">
-                    <button type="submit" name="comment" class="btn btn-primary">Bình luận</button>
+                    <button type="submit" name="comment" class="btn btn-primary"><i class="fas fa-comments"></i></button>
                 </div>
             </form>
         </div>

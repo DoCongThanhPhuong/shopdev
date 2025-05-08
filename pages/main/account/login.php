@@ -31,14 +31,14 @@
       <form method="POST" action="">
         <div class="form-outline mb-4">
           <label class="font-weight-bold" for="username">Tên đăng nhập</label>
-          <input required type="text" id="username" class="form-control form-control-lg" 
-            name="username" placeholder="Nhập tên đăng nhập" />
+          <input required type="text" id="username" class="form-control form-control-lg"
+            name="username" />
         </div>
         
         <div class="form-outline mb-3">
           <label class="font-weight-bold" for="password">Mật khẩu</label>
           <input required type="password" id="password" class="form-control form-control-lg"
-            name="password" placeholder="Nhập mật khẩu" />
+            name="password" />
         </div>
         <p class="text-center text-danger"><strong><?php if(isset($alert)) { echo $alert; } ?></strong></p>
         <div class="text-center text-lg-start mt-4 pt-2">

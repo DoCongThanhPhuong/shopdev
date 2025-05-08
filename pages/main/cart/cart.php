@@ -7,8 +7,8 @@
   $query_cart = mysqli_query($mysqli, $sql_cart);
 ?>
 
-<div class="container min-height-100 mb-5">
-    <h1 class="text-center">Giỏ hàng</h1>
+<div class="container min-height-100 my-4">
+    <h5 class="text-center">Giỏ hàng</h5>
     <div>
       <?php
       if (isset($_SESSION['user_id'])) {
@@ -52,7 +52,7 @@
                       <?= number_format($row['product_price'] *(100 - $row['product_discount'])/ 100,0,',','.') ?> VND
                     </td>
                     <td>
-                      <a class="text-danger" href="pages/main/cart/delete.php?id_delete=<?= $row['product_id'] ?>">Xóa</a>
+                      <a class="text-danger" href="pages/main/cart/delete.php?id_delete=<?= $row['product_id'] ?>"><i class="fas fa-trash-alt"></i></a>
                     </td>
                   </tr>
                   <?php
@@ -67,7 +67,7 @@
               <th colspan="3">Tổng giá trị: <?= number_format($total_value,0,',','.') ?> VND</th>
               <th colspan="2">Tổng số lượng: <?= $total_quantity ?></th>
               <td>
-                <a class="btn btn-danger w-100" href="pages/main/cart/delete.php?delete_all">Xóa tất cả</a>
+                <a class="btn btn-danger w-100" href="pages/main/cart/delete.php?delete_all"><i class="fas fa-trash-alt"></i></a>
               </td>
             </tr>
             <tr>
@@ -81,7 +81,7 @@
             $_SESSION['total_quantity'] = $total_quantity;
           } else {
           ?>
-          <h5 class="text-center">Không có sản phẩm trong giỏ hàng</h5>
+          <p class="text-center">Không có sản phẩm trong giỏ hàng</p>
           <?php
           }
           ?>

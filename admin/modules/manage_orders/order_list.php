@@ -16,9 +16,8 @@
     <table class="table table-striped table-checkall">
         <thead>
             <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Mã đơn hàng</th>
-                <th scope="col">User ID</th>
+                <th scope="col">Mã</th>
+                <th scope="col">Người nhận</th>
                 <th scope="col">Số điện thoại</th>
                 <th scope="col">Thời gian tạo</th>
                 <th scope="col">Giá trị</th>
@@ -26,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php 
+            <?php
                 $sum=0;
                 $num=0;
                 while($row_order = mysqli_fetch_array($query_order)){
@@ -34,9 +33,8 @@
                     $num++;
             ?>
             <tr>
-                <td><?php echo $num ?></td>
-                <td><?php echo $row_order['order_id']?></td>
-                <td><?php echo $row_order['user_id']?></td>
+                <td><?php echo $row_order['order_code']?></td>
+                <td><?php echo $row_order['order_receiver']?></td>
                 <td><?php echo $row_order['order_phone']?></td>
                 <td><?php echo $row_order['order_created_at']?></td>
                 <td><?php echo number_format($row_order['order_value'],0,',','.')?> VND</td>

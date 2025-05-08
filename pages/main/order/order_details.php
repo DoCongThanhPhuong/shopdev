@@ -14,7 +14,7 @@
 <div class="container mt-5 min-height-100">  
     <table class="table-bordered w-100 bg-white" cellpadding="5px">
         <tr>
-            <th colspan="4"><h1 class="text-center">Chi tiết đơn hàng</h1></th>
+            <th colspan="4"><h5 class="text-center">Chi tiết đơn hàng</h5></th>
         </tr>
         <tr>
             <td colspan="2">Người nhận: <?= $row['order_receiver']?></td>
@@ -40,7 +40,7 @@
         <?php 
         $i=0;
         while($row_details = mysqli_fetch_assoc($query_order_details)){
-            $i++;    
+            $i++;
         ?>
         <tr>
             <td><?= $i?></td>
@@ -56,7 +56,7 @@
     <?php
         if($row['order_status'] == 0)  {
     ?>
-    <div class="text-center mt-60">
+    <div class="text-center mt-2">
         <a class="btn btn-danger" href="pages/main/order/cancel.php?id_cancel=<?= $order_id?>">Hủy</a>
     </div>
      <?php } ?>

@@ -24,7 +24,7 @@
       <div class="col-lg-8 mt-5">
         <table class="table-bordered w-100" cellpadding="5px">           
           <tr class="text-center">
-            <td colspan="4"><h4>Đơn hàng</h4></td>
+            <td colspan="4"><h5>Đơn hàng</h5></td>
           </tr>
           <tr>
             <td colspan="4">Người nhận: <?php echo $_SESSION['order_receiver'] ?></td>
@@ -78,13 +78,13 @@
               <input class="d-block btn btn-success mt-3 w-100" type="submit" name="cod" value="Thanh toán tiền mặt (COD)">
               <input class="d-block btn btn-primary mt-3 w-100" type="submit" name="vnpay" value="Thanh toán qua VNPAY">
           </form>
-          <form method="POST" target="_blank" enctype="application/x-www-form-urlencoded"
+          <form method="POST" enctype="application/x-www-form-urlencoded"
                           action="pages/main/order/momo_qr_payment.php">
             <input type="hidden" name="total_value" value="<?php echo $total_value?>">
             <input class="btn text-light mt-3 w-100" style="background-color: #ae2170; border-color: #ae2170;" 
             type="submit" value="Thanh toán qua MOMO QR Code">              
           </form>
-          <form method="POST" target="_blank" enctype="application/x-www-form-urlencoded"
+          <form method="POST" enctype="application/x-www-form-urlencoded"
                           action="pages/main/order/momo_atm_payment.php">
             <input type="hidden" name="total_value" value="<?php echo $total_value?>">
             <input class="btn text-light mt-3 w-100" style="background-color: #ae2170; border-color: #ae2170;" 

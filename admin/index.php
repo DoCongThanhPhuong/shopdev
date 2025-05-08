@@ -40,7 +40,7 @@
                     </div>
                 </div>
             <div>
-                <a class="btn btn-danger mr-2" href="logout.php">Đăng xuất</a>
+                <a class="btn btn-danger mr-2" href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
             </div>
             </nav>
             <div id="page-body" class="d-flex">
@@ -67,6 +67,7 @@
                                     <a href="?product=product_list">Danh sách sản phẩm</a>
                                 </li>
                                 <li><a href="?cat=cat_list"> Quản lý danh mục</a></li>
+                                <li><a href="?brand=brand_list"> Quản lý thương hiệu</a></li>
                             </ul>
                         </li>
                         <li class="nav-link">
@@ -107,6 +108,7 @@
                         'user'    => 'modules/manage_users',
                         'product' => 'modules/manage_products',
                         'cat'     => 'modules/manage_categories',
+                        'brand'   => 'modules/manage_brands',
                         'order'   => 'modules/manage_orders',
                     ];
                     

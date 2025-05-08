@@ -1,6 +1,6 @@
 <div>
     <div id="content" class="container-fluid">
-        <h1 class="text-center p-2">Thống kê doanh thu</h1>
+        <h4 class="text-center p-2">Thống kê doanh thu</h4>
         <div>
             <p class="font-weight-bold">7 ngày gần đây</p>
             <div id="chart3" style="height: 200px;"></div>
