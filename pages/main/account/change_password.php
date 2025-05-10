@@ -5,7 +5,7 @@ if (!$user_id) {
   exit("Người dùng chưa đăng nhập.");
 }
 
-$sql = "SELECT user_password FROM tbluser WHERE user_id = $user_id LIMIT 1";
+$sql = "SELECT user_password FROM tbluser WHERE user_id = $user_id";
 $result = mysqli_query($mysqli, $sql);
 $row = mysqli_fetch_assoc($result);
 

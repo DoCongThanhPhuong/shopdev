@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];
-    $sql_getProduct = "SELECT * FROM tblproduct WHERE product_id = $product_id LIMIT 1";
+    $sql_getProduct = "SELECT * FROM tblproduct WHERE product_id = $product_id";
     $query_getProduct = mysqli_query($mysqli, $sql_getProduct);
     $row = mysqli_fetch_array($query_getProduct);
 

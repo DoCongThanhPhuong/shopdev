@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
             <div class="card-body">
                 <form action="modules/manage_brands/update.php?id=<?php echo $brand_id ?>" method="POST">
                     <div class="form-group">
-                        <label for="brand_name">Tên danh mục:</label>
+                        <label for="brand_name">Tên thương hiệu:</label>
                         <input required class="form-control" type="text" name="brand_name" id="brand_name"
                             value="<?php echo $row['brand_name'] ?>">
                     </div>

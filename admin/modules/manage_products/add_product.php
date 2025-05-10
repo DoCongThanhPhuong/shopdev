@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="name">Tên sản phẩm</label>
+                            <label for="name">Tên</label>
                             <input class="form-control" required type="text" name="product_name" id="name">
                         </div>
                         <div class="form-group">

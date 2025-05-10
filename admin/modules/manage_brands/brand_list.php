@@ -9,7 +9,7 @@
 			$sql_delete = "DELETE FROM tblbrand where tblbrand.brand_id = '".$_GET['delete_id']."'";
 			mysqli_query($mysqli, $sql_delete);
 		} else {
-            echo "<script>alert(\"Danh mục này có sản phẩm, không thể xóa\")</script>";
+            echo "<script>alert(\"Thương hiệu này có sản phẩm, không thể xóa\")</script>";
 		}
 	}
 ?>
@@ -18,7 +18,7 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header font-weight-bold">
-                    Thêm thương hiệu
+                    Thêm mới
                 </div>
                 <div class="card-body">
                     <form action="modules/manage_brands/add_brand.php" method="POST">

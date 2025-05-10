@@ -18,7 +18,7 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header font-weight-bold">
-                    Thêm danh mục
+                    Thêm mới
                 </div>
                 <div class="card-body">
                     <form action="modules/manage_categories/add_cat.php" method="POST">

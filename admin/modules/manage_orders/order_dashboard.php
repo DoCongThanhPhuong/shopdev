@@ -13,7 +13,7 @@
     $sql_CountOrder3=mysqli_query($mysqli,"SELECT order_id FROM tblorder WHERE order_status= '2'");
     $CountOrder3 = mysqli_num_rows($sql_CountOrder3);
 ?>
-<div class="container-fluid py-5">  
+<div class="container-fluid py-5">
     <div class="row">
         <div class="col">
                 <div class="card text-white bg-primary mb-3" style="max-width: 18rem; height: 120px;">
@@ -60,10 +60,10 @@
                         <th scope="col">Mã đơn hàng</th>
                         <th scope="col">Người nhận</th>
                         <th scope="col">Giá trị</th>
-                        <th scope="col">Số điện thoại</th>
+                        <th scope="col">Điện thoại</th>
                         <th scope="col">Địa chỉ</th>
-                        <th scope="col">Thời gian tạo</th>
-                        <th scope="col">Phương thức thanh toán</th>
+                        <th scope="col">Thời gian</th>
+                        <th scope="col">Phương thức</th>
                         <th scope="col">Duyệt/Hủy</th>
                     </tr>
                 </thead>

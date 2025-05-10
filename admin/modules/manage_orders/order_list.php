@@ -18,8 +18,8 @@
             <tr>
                 <th scope="col">Mã</th>
                 <th scope="col">Người nhận</th>
-                <th scope="col">Số điện thoại</th>
-                <th scope="col">Thời gian tạo</th>
+                <th scope="col">Điện thoại</th>
+                <th scope="col">Thời gian</th>
                 <th scope="col">Giá trị</th>
                 <th scope="col">Chi tiết</th>
             </tr>
@@ -38,7 +38,7 @@
                 <td><?php echo $row_order['order_phone']?></td>
                 <td><?php echo $row_order['order_created_at']?></td>
                 <td><?php echo number_format($row_order['order_value'],0,',','.')?> VND</td>
-                <td><a href="?order=order_details&id=<?php echo $row_order['order_id']?>">Chi tiết</a></td>
+                <td><a href="?order=order_details&id=<?php echo $row_order['order_id']?>"><i class="fas fa-eye"></i></a></td>
             </tr>
         <?php
         }

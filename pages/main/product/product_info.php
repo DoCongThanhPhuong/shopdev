@@ -1,5 +1,11 @@
 <?php
-    $sql_product = "SELECT * FROM tblproduct WHERE product_id = '$_GET[product_id]'";
+    $sql_product = "
+        SELECT p.*, c.category_name, b.brand_name
+        FROM tblproduct AS p
+        JOIN tblcategory AS c ON p.category_id = c.category_id
+        JOIN tblbrand AS b ON p.brand_id = b.brand_id
+        WHERE p.product_id = '$_GET[product_id]'
+    ";
     $query_product = mysqli_query($mysqli, $sql_product);
     $row_product = mysqli_fetch_array($query_product);
 
@@ -45,15 +51,17 @@
 
                 <h6 class="mt-4">Thông tin thêm</h6>
                 <ul class="list-group list-group-flush mb-3">
-                    <li class="list-group-item">Thương hiệu: <?php echo $row_product['product_brand']; ?></li>
+                    <li class="list-group-item">Danh mục: <?php echo $row_product['category_name']; ?></li>
+                    <li class="list-group-item">Thương hiệu: <?php echo $row_product['brand_name']; ?></li>
                     <li class="list-group-item">Chất liệu: <?php echo $row_product['product_material']; ?></li>
                     <li class="list-group-item">Camera: <?php echo $row_product['product_camera']; ?></li>
+                    <li class="list-group-item">Số lượng còn lại: <?php echo $row_product['product_quantity']; ?></li>
                 </ul>
 
                 <div class="my-2">
                     <p>Giá gốc: <del><?php echo number_format($row_product['product_price'], 0, ',', '.'); ?> VND</del></p>
                     <p class="text-danger">Giảm giá: <?php echo $row_product['product_discount']; ?>%</p>
-                    <p><strong>Giá sau giảm:</strong> 
+                    <p><strong>Giá sau giảm:</strong>
                         <span>
                             <?php echo number_format($row_product['product_price'] * (100 - $row_product['product_discount']) / 100, 0, ',', '.'); ?> VND
                         </span>
@@ -65,10 +73,10 @@
                         <div class="form-group row align-items-center">
                             <label for="quantity" class="col-sm-3 col-form-label"><strong>Số lượng:</strong></label>
                             <div class="col-sm-3">
-                                <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1">
+                            <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" max="<?php echo $row_product['product_quantity']; ?>">
                             </div>
                             <div class="col-sm-6">
-                                <button type="submit" name="mua" class="btn btn-success"><i class="fas fa-cart-plus"></i></button>
+                                <button type="submit" name="add_to_cart" class="btn btn-success"><i class="fas fa-cart-plus"></i></button>
                             </div>
                         </div>
                     <?php else: ?>

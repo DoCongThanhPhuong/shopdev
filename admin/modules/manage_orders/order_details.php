@@ -14,7 +14,7 @@
     <div class="card">
     <table class="table table-bordered table-checkall">
     <tr>
-            <th colspan="4"><h1 class="text-center">Chi tiết đơn hàng</h1></th>
+            <th colspan="4"><h3 class="text-center">Chi tiết đơn hàng</h3></th>
         </tr>
         <tr>
             <td colspan="2">Người nhận: <?= $row['order_receiver']?></td>
@@ -29,10 +29,10 @@
         </tr>
         <tr>
             <td colspan="2">Mã đơn hàng: <?= $row['order_code']?></td>
-            <td colspan="2">Phương thức thanh toán: <?= $row['order_payment']?></td>
+            <td colspan="2">Phương thức: <?= $row['order_payment']?></td>
         </tr>
         <tr>
-            <th>STT</th>
+            <th>#</th>
             <th>Tên sản phẩm</th>
             <th>Số lượng</th>
             <th>Giá</th>
@@ -45,8 +45,8 @@
         <tr>
             <td><?= $i?></td>
             <td><?= $row_detail['product_name']?></td>
-            <td><?= $row_detail['quantity']?> Kg</td>
-            <td><?= number_format($row_detail['purchase_price'],0,',','.')?> VND/Kg</td>
+            <td><?= $row_detail['quantity']?></td>
+            <td><?= number_format($row_detail['purchase_price'],0,',','.')?> VND</td>
         </tr>
         <?php }?>
         <tr>

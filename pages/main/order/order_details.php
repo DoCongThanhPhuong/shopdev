@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td colspan="2">Mã đơn hàng: <?= $row['order_code']?></td>
-            <td colspan="2">Phương thức thanh toán: <?= $row['order_payment']?></td>
+            <td colspan="2">Phương thức: <?= $row['order_payment']?></td>
         </tr>
         <tr>
             <th>#</th>

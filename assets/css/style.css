@@ -169,3 +169,28 @@ body {
     object-fit: contain;
     object-position: center center;
 }
+
+.truncate-text {
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 200px;
+}
+
+.truncate-text:hover::after {
+    content: attr(data-fullname);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    white-space: normal;
+    z-index: 100;
+    max-width: 250px;
+    border-radius: 4px;
+    font-size: 14px;
+}

@@ -5,7 +5,7 @@
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-    $sql_getName = "SELECT * FROM tbluser WHERE user_loginname = '$username' LIMIT 1";
+    $sql_getName = "SELECT * FROM tbluser WHERE user_loginname = '$username'";
     $query_getName = mysqli_query($mysqli, $sql_getName);
     $row_getName = mysqli_fetch_array($query_getName);
     if ($username == '' || $password == '') {

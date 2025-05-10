@@ -1,7 +1,7 @@
 <?php
     if(isset($_GET['trang'])){
         $page = $_GET['trang'];
-    } else{
+    } else {
         $page = 1;
     }
     if($page == '' || $page == 1){
@@ -34,7 +34,7 @@
                     <thead>
                         <tr>
                         <th>#</th>
-                        <th>Tên sản phẩm</th>
+                        <th>Tên</th>
                         <th>Số lượng</th>
                         <th>Hình ảnh</th>
                         <th>Giá</th>

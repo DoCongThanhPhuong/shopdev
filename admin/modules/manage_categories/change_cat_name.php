@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
     $category_id = $_GET['id'];
-    $sql_getCategory = "SELECT * FROM tblcategory where category_id = $category_id LIMIT 1";
+    $sql_getCategory = "SELECT * FROM tblcategory where category_id = $category_id";
     $query_getCategory = mysqli_query($mysqli, $sql_getCategory);
     $row = mysqli_fetch_array($query_getCategory);
 }
