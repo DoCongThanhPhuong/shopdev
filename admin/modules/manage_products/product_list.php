@@ -34,12 +34,12 @@
                     <thead>
                         <tr>
                         <th>#</th>
+                        <th>Hình ảnh</th>
                         <th>Tên</th>
                         <th>Số lượng</th>
-                        <th>Hình ảnh</th>
                         <th>Giá</th>
                         <th>Giảm giá</th>
-                        <th>Thao tác</th>
+                        <th>Sửa/Xóa</th>
                     </tr>
                 </thead>
                         <?php
@@ -49,16 +49,11 @@
                             ?>
                             <tbody>
                                 <td><?php echo $i ?></td>
-                                <td><?php echo $row['product_name'];?></td>
-                                <td><?php echo $row['product_quantity'];?></td>
                                 <td>
-                                    <img style="width: 180px;
-                                                height: 180px;
-                                                object-fit: contain;
-                                                object-position: center center;"
-                                    src="../assets/images/products/<?php echo $row['product_image'];?>"
-                                    alt="<?php echo $row['product_name'];?>"/>
+                                    <img class="product-img" src="../assets/images/products/<?php echo $row['product_image'];?>" alt="<?php echo $row['product_name'];?>"/>
                                 </td>
+                                <td class="truncate-text"><?php echo $row['product_name'];?></td>
+                                <td><?php echo $row['product_quantity'];?></td>
                                 <td><?php echo number_format($row['product_price'],0,',','.');?></td>
                                 <td><?php echo $row['product_discount'];?>%</td>
                                 <td>

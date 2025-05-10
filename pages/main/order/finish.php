@@ -10,7 +10,7 @@
     $TransactionNo=$_GET['vnp_TransactionNo'];
     $order_code = $_SESSION['order_code'];
     $insert_vnpay = "INSERT INTO tblvnpay (Amount, BankCode, BankTranNo, CardType, OrderInfo, PayDate, TmnCode, TransactionNo, order_code)
-    VALUES ('".$Amount."', '".$BankCode."', '".$BankTran#"', '".$CardType."', '".$OrderInfo."', '".$PayDate."', '".$TmnCode."', '".$Transaction#"', $order_code)";
+    VALUES ('".$Amount."', '".$BankCode."', '".$BankTranNo."', '".$CardType."', '".$OrderInfo."', '".$PayDate."', '".$TmnCode."', '".$TransactionNo."', $order_code)";
     $query_insert = mysqli_query($mysqli, $insert_vnpay);
   } elseif (isset($_GET['partnerCode'])) {
 		$order_code = rand(1, 10000);
@@ -40,7 +40,7 @@
       $insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
       $order_id = mysqli_insert_id($mysqli);
       $_SESSION['order_id'] = $order_id;
-      $sql_cart = "SELECT * FROM tblcart_details 
+      $sql_cart = "SELECT * FROM tblcart_details
       where tblcart_details.cart_id = $cart_id";
       $query_cart = mysqli_query($mysqli, $sql_cart);
       while ($row = mysqli_fetch_assoc($query_cart)) {
@@ -63,9 +63,9 @@
     }
 	}
 ?>
-  <div class="container min-height-100">
-    <div class="text-center mt-5">
-      <p>Cảm ơn bạn đã đặt hàng, đơn hàng của bạn đang được xét duyệt</p>
-      <a class="btn btn-info" href="index.php?navigate=order_history">Xem lịch sử đơn hàng</a>
-    </div>
+<div class="container min-height-100">
+  <div class="text-center mt-5">
+    <p>Cảm ơn bạn đã đặt hàng, đơn hàng của bạn đang được xét duyệt</p>
+    <a class="btn btn-info" href="index.php?navigate=order_history">Xem lịch sử đơn hàng</a>
   </div>
+</div>

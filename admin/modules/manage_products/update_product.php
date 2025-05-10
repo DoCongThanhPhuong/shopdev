@@ -4,6 +4,9 @@ if (isset($_GET['id'])) {
     $sql_getProduct = "SELECT * FROM tblproduct WHERE product_id = $product_id";
     $query_getProduct = mysqli_query($mysqli, $sql_getProduct);
     $row = mysqli_fetch_array($query_getProduct);
+    
+    $sql_brand = "SELECT * FROM tblbrand ORDER BY brand_id DESC";
+    $query_brand = mysqli_query($mysqli, $sql_brand);
 
     $sql_category = "SELECT * FROM tblcategory ORDER BY category_id DESC";
     $query_category = mysqli_query($mysqli, $sql_category);
@@ -31,7 +34,15 @@ if (isset($_GET['id'])) {
               </div>
               <div class="form-group">
                 <label for="product_brand">Thương hiệu</label>
-                <input class="form-control" required type="text" name="product_brand" id="product_brand" value="<?= $row['product_brand'] ?>">
+                <select class="form-control" required name="product_brand">
+                  <?php
+                    mysqli_data_seek($query_brand, 0);
+                    while ($row_brand = mysqli_fetch_array($query_brand)) {
+                      $selected = ($row['brand_id'] == $row_brand['brand_id']) ? 'selected' : '';
+                      echo "<option value='{$row_brand['brand_id']}' $selected>{$row_brand['brand_name']}</option>";
+                    }
+                  ?>
+                </select>
               </div>
               <div class="form-group">
                 <label for="product_material">Chất liệu</label>
@@ -79,11 +90,10 @@ if (isset($_GET['id'])) {
               </div>
               <div class="form-group">
                 <label for="product_discount">Giảm giá (%)</label>
-                <input class="form-control" required type="text" name="product_discount" id="product_discount" value="<?= $row['product_discount'] ?>">
+                <input class="form-control" required type="number" name="product_discount" id="product_discount" value="<?= $row['product_discount'] ?>">
               </div>
             </div>
 
-            <!-- RIGHT column -->
             <div class="col-md-6">
               <div class="form-group">
                 <label for="product_description">Mô tả</label>
@@ -91,16 +101,15 @@ if (isset($_GET['id'])) {
               </div>
               <div class="form-group">
                 <label for="product_category">Danh mục</label>
-                <select class="form-control" required name="product_category">
-                  <option value="">Chọn danh mục</option>
-                  <?php 
-                    mysqli_data_seek($query_category, 0); // Reset pointer
-                    while ($row_category = mysqli_fetch_array($query_category)) {
-                      $selected = ($row['category_id'] == $row_category['category_id']) ? 'selected' : '';
-                      echo "<option value='{$row_category['category_id']}' $selected>{$row_category['category_name']}</option>";
-                    }
-                  ?>
-                </select>
+                  <select class="form-control" required name="product_category">
+                    <?php
+                      mysqli_data_seek($query_category, 0);
+                      while ($row_category = mysqli_fetch_array($query_category)) {
+                        $selected = ($row['category_id'] == $row_category['category_id']) ? 'selected' : '';
+                        echo "<option value='{$row_category['category_id']}' $selected>{$row_category['category_name']}</option>";
+                      }
+                    ?>
+                  </select>
               </div>
               <div class="form-group">
                 <label for="product_image">Hình ảnh</label>
@@ -111,7 +120,6 @@ if (isset($_GET['id'])) {
               </div>
             </div>
           </div>
-
           <input type="submit" class="btn btn-primary mt-3" name="submit" value="Cập nhật">
         </form>
       </div>

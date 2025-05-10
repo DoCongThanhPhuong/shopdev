@@ -22,7 +22,7 @@
         $imageName = $_FILES['product_image']['name'];
         $imageTemp = $_FILES['product_image']['tmp_name'];
         move_uploaded_file($imageTemp, "../../../assets/images/products/" . $imageName);
-        $sql_add = 
+        $sql_add =
         "INSERT INTO tblproduct (
             category_id, product_name, product_description,
             product_price, product_quantity, product_image, product_discount,

@@ -22,9 +22,9 @@
 <div class="container py-5">
     <div class="row">
       <div class="col-lg-8 mt-5">
-        <table class="table-bordered w-100" cellpadding="5px">           
+        <table class="table-bordered w-100 bg-light">
           <tr class="text-center">
-            <td colspan="4"><h5>Đơn hàng</h5></td>
+            <td colspan="4"><h5>Chi tiết đơn hàng</h5></td>
           </tr>
           <tr>
             <td colspan="4">Người nhận: <?php echo $_SESSION['order_receiver'] ?></td>
@@ -42,11 +42,11 @@
               <th scope="col">Số lượng</th>
               <th scope="col">Giá</th>
             </tr>
-              <?php 
-              $i=0; 
-              $total_value = 0;
-              while($row_detail = mysqli_fetch_assoc($query_cart_detail)) {
-                $i++;
+              <?php
+                $i=0;
+                $total_value = 0;
+                while($row_detail = mysqli_fetch_assoc($query_cart_detail)) {
+                  $i++;
               ?>
                 <tr class="text-center">
                   <td><?= $i?></td>
@@ -60,10 +60,10 @@
                     <?= number_format($row_detail['product_price'] *(100 - $row_detail['product_discount'])/ 100,0,',','.') ?> VND
                   </td>
                 </tr>
-              <?php 
-              $value = (int)$row_detail['quantity'] * (int)$row_detail['product_price'] * (100-$row_detail['product_discount'])/100;
-              $total_value += $value;
-              } 
+              <?php
+                $value = (int)$row_detail['quantity'] * (int)$row_detail['product_price'] * (100-$row_detail['product_discount'])/100;
+                $total_value += $value;
+                }
               ?>
               <tr>
                 <th colspan="5">Tổng giá trị:  <?= number_format($total_value,0,',','.') ?> VND</th>
@@ -81,14 +81,14 @@
           <form method="POST" enctype="application/x-www-form-urlencoded"
                           action="pages/main/order/momo_qr_payment.php">
             <input type="hidden" name="total_value" value="<?php echo $total_value?>">
-            <input class="btn text-light mt-3 w-100" style="background-color: #ae2170; border-color: #ae2170;" 
-            type="submit" value="Thanh toán qua MOMO QR Code">              
+            <input class="btn text-light mt-3 w-100" style="background-color: #ae2170; border-color: #ae2170;"
+            type="submit" value="Thanh toán qua MOMO QR Code">
           </form>
           <form method="POST" enctype="application/x-www-form-urlencoded"
                           action="pages/main/order/momo_atm_payment.php">
             <input type="hidden" name="total_value" value="<?php echo $total_value?>">
-            <input class="btn text-light mt-3 w-100" style="background-color: #ae2170; border-color: #ae2170;" 
-            type="submit" value="Thanh toán qua MOMO ATM">              
+            <input class="btn text-light mt-3 w-100" style="background-color: #ae2170; border-color: #ae2170;"
+            type="submit" value="Thanh toán qua MOMO ATM">
           </form>
         </div>
       </div>

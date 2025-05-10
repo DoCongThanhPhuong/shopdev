@@ -60,11 +60,9 @@
                         <th scope="col">Mã đơn hàng</th>
                         <th scope="col">Người nhận</th>
                         <th scope="col">Giá trị</th>
-                        <th scope="col">Điện thoại</th>
-                        <th scope="col">Địa chỉ</th>
                         <th scope="col">Thời gian</th>
                         <th scope="col">Phương thức</th>
-                        <th scope="col">Duyệt/Hủy</th>
+                        <th scope="col">Chi tiết</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,14 +77,13 @@
                             <?php echo $row['order_receiver']?>
                         </td>
                         <td><?php echo number_format($row['order_value'],0,',','.')?> VND</td>
-                        <td><a href="#"><?php echo $row['order_phone']?></a></td>
-                        <td><?php echo $row['order_address']?></td>
                         <td><?php echo $row['order_created_at']?></td>
                         <td><?php echo $row['order_payment']?></td>
-                        <td>
+                        <td><a href="?order=order_details&id=<?php echo $row['order_id']?>"><i class="fas fa-eye"></i></a></td>
+                        <!-- <td>
                             <a href="modules/manage_orders/process_order.php?process=approve&id=<?php echo $row['order_id']?>" class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-check-square"></i></a>
                             <a href="modules/manage_orders/process_order.php?process=cancel&id=<?php echo $row['order_id']?>" class="btn btn-danger btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                        </td>
+                        </td> -->
                     </tr>
                     <?php } ?>
                 </tbody>

@@ -1,6 +1,8 @@
 <?php
     $sql_category="SELECT * FROM tblcategory ORDER BY category_id DESC";
     $query_category=mysqli_query($mysqli,$sql_category);
+    $sql_brand="SELECT * FROM tblbrand ORDER BY brand_id DESC";
+    $query_brand=mysqli_query($mysqli,$sql_brand);
 ?>
 
 <div id="content" class="container-fluid">
@@ -26,7 +28,11 @@
                         </div>
                         <div class="form-group">
                             <label for="product_brand">Thương hiệu</label>
-                            <input class="form-control" required type="text" name="product_brand" id="product_brand">
+                            <select class="form-control" required name="product_brand">
+                                <?php while ($row_brand=mysqli_fetch_array($query_brand)) { ?>
+                                <option value="<?php echo $row_brand['brand_id']?>"><?php echo $row_brand['brand_name']?></option>
+                                <?php }?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="product_material">Chất liệu</label>
