@@ -11,20 +11,20 @@
       <?php
       if (isset($_SESSION['user_id'])) {
         ?>
-        <form method="POST" action="index.php?navigate=customer_info">
+        <form class="table-custom-wrapper" method="POST" action="index.php?navigate=customer_info">
             <?php
             if (mysqli_num_rows($query_cart) > 0) {
               $i = 0;
               $total_value = 0;
               $total_quantity = 0;
               ?>
-            <table class="bg-white table-bordered w-100" cellpadding="5px">
+            <table class="table-custom">
               <thead>
               <tr class="text-center">
                 <th scope="col">#</th>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
-                <th scope="col">Số lượng</th>
+                <th scope="col">SL</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Xóa</th>
               </tr>
@@ -62,8 +62,8 @@
               ?>
               </tbody>
             <tr>
-              <th colspan="3">Tổng giá trị: <?= number_format($total_value,0,',','.') ?> VND</th>
-              <th colspan="2">Tổng số lượng: <?= $total_quantity ?></th>
+              <th colspan="3" scope="col">Tổng giá trị: <?= number_format($total_value,0,',','.') ?> VND</th>
+              <th colspan="2" scope="col">Tổng số lượng: <?= $total_quantity ?></th>
               <td>
                 <a class="btn btn-danger w-100" href="pages/main/cart/delete.php?delete_all"><i class="fas fa-trash-alt"></i></a>
               </td>

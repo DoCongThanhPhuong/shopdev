@@ -8,18 +8,18 @@ if (isset($_SESSION['user_id'])) {
 
 <div class="container min-height-100">
   <div class="row">
-    <div class="col-md-12 mt-3">
-      <h5 class="text-center">Danh sách đơn hàng</h5>
-      <table cellpadding="5px" class="table-bordered w-100 bg-white">
+    <div class="col-md-12 mt-3 table-custom-wrapper">
+      <h5 class="text-center">Lịch sử đơn hàng</h5>
+      <table class="table-custom">
         <thead>
           <tr class="text-center">
             <th scope="col">#</th>
-            <th scope="col">ID</th>
+            <th scope="col">Mã</th>
             <th scope="col">Người nhận</th>
             <th scope="col">Thời gian</th>
-            <th scope="col">Giá trị</th> 
+            <th scope="col">Giá trị</th>
             <th scope="col">Trạng thái</th>
-            <th scope="col">Chi tiết</th> 
+            <th scope="col">Chi tiết</th>
           </tr>
         </thead>
         <tbody>
@@ -33,9 +33,9 @@ if (isset($_SESSION['user_id'])) {
           else {$status = "Đã hủy"; $style = "text-danger";}
         ?>
             <td><?php echo $i ?></td>
-            <td><?php echo $row_getOrder['order_id']; ?></td> 
-            <td><?php echo $row_getOrder['order_receiver']; ?></td> 
-            <td><?php echo $row_getOrder['order_created_at']; ?></td> 
+            <td><?php echo $row_getOrder['order_code']; ?></td>
+            <td><?php echo $row_getOrder['order_receiver']; ?></td>
+            <td><?php echo $row_getOrder['order_created_at']; ?></td>
             <td><?php echo number_format($row_getOrder['order_value'], 0, ',', '.'); ?> VND</td>
             <td class="<?php echo $style?>"><?php echo $status; ?></td>
             <td>

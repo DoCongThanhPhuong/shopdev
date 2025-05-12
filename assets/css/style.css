@@ -1,196 +1,249 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik|Roboto:400,400i,500,600,700");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    background-color: #f1f1f1;
+  font-family: "Roboto", sans-serif;
+  background-color: #f1f1f1;
 }
 
 .min-height-100 {
-    min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
 }
 
 .primary-background {
-    background: #2e2c2c;
+  background: #2e2c2c;
 }
 
 .container-fluid h1,
 .container-fluid h2,
 .container h1,
 .container h2 {
-    font-size: 6vmin;
-    padding-top: 2vmin;
-    padding-bottom: 2vmin;
+  font-size: 6vmin;
+  padding-top: 2vmin;
+  padding-bottom: 2vmin;
 }
 
 .intro-slide {
-    text-align: center;
-    width: 100%;
-    height: 560px;
-    object-fit: cover;
-    object-position: center center;
+  text-align: center;
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* Menu */
 .sidebar {
-    padding-top: 40px;
-    background: #3f3f3f;
-    color: #ccc;
+  padding-top: 40px;
+  background: #3f3f3f;
+  color: #ccc;
 }
 
 .menu a {
-    font-size: 0.9em;
-    color: whitesmoke;
+  font-size: 0.9em;
+  color: whitesmoke;
 }
 
 .menu .nav-item:last-child {
-    padding-right: 10.5em;
+  padding-right: 10.5em;
 }
 
 .menu .nav-item {
-    padding: 0.9em;
+  padding: 0.9em;
 }
 
 .menu .navbar-brand {
-    padding-left: 8rem;
+  padding-left: 8rem;
 }
 
 .menu .nav-link:hover {
-    color: #ccc;
+  color: #ccc;
 }
 
 /* Section 1 */
 .section-1 {
-    overflow-x: hidden;
-    padding: 20vmin 0vmin;
+  overflow-x: hidden;
+  padding: 20vmin 0vmin;
 }
 
 .section-1 .row .col-md-6 .pray img {
-    opacity: 0.8;
-    width: 80%;
-    border-radius: 0.2em;
+  opacity: 0.8;
+  width: 80%;
+  border-radius: 0.2em;
 }
 
 .section-1 .row .col-md-6:last-child {
-    position: relative;
+  position: relative;
 }
 
 .section-1 .row .col-md-6 .panel {
-    position: absolute;
-    top: 8vmin;
-    left: -18vmin;
-    background: white;
-    border-radius: 3px;
-    text-align: left;
-    padding: 13vmin 5vmin 20vmin 10vmin;
-    box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  position: absolute;
+  top: 8vmin;
+  left: -18vmin;
+  background: white;
+  border-radius: 3px;
+  text-align: left;
+  padding: 13vmin 5vmin 20vmin 10vmin;
+  box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .section-1 .row .col-md-6 .panel h1 {
-    font-weight: bold;
-    padding: 0.4em 0;
-    font-size: 2em;
+  font-weight: bold;
+  padding: 0.4em 0;
+  font-size: 2em;
 }
 
 .section-1 .row .col-md-6 .panel p {
-    font-size: 1em;
-    color: rgba(0, 0, 0, 0.8);
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Section 4 */
 .section-4 {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .section-4 .container h1 {
-    font-size: 6vmin;
-    padding-top: 14vmin;
+  font-size: 6vmin;
+  padding-top: 14vmin;
 }
 
 .section-4 .team {
-    padding: 10vmin 4vmin;
+  padding: 10vmin 4vmin;
 }
 
 .section-4 .card {
-    width: 22em;
-    padding: 2em 0;
-    margin-top: 10vmin;
+  width: 22em;
+  padding: 2em 0;
+  margin-top: 10vmin;
 }
 
 .section-4 .card .card-text {
-    padding: 0.5em;
-    font-style: italic;
+  padding: 0.5em;
+  font-style: italic;
 }
 
 .section-4 .card-body > a {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .section-4 .carousel-item {
-    padding-left: 3rem;
+  padding-left: 3rem;
 }
 
 .section-4 img {
-    display: inline-block;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center center;
+  display: inline-block;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* Footer */
 .footer {
-    overflow-x: hidden;
-    padding: 8vmin 18vmin;
-    clear: both;
+  overflow-x: hidden;
+  padding: 8vmin 18vmin;
+  clear: both;
 }
 
 .footer input::placeholder {
-    color: white !important;
+  color: white !important;
 }
 
 .footer .column a {
-    color: white;
+  color: white;
 }
 
 .footer .column a + a {
-    padding: 0 8px;
+  padding: 0 8px;
+}
+
+/* Common */
+.truncate-text {
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 200px;
+}
+
+.truncate-text:hover::after {
+  content: attr(data-fullname);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  white-space: normal;
+  z-index: 100;
+  max-width: 250px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Table */
+.table-custom-wrapper {
+  overflow-x: auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #343a40;
+}
+
+.table-custom th,
+.table-custom td {
+  padding: 12px 16px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.table-custom thead {
+  background-color: #f1f3f5;
+}
+
+.table-custom thead th {
+  font-weight: 600;
+  color: #212529;
+}
+
+.table-custom tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.table-custom tbody tr:hover {
+  background-color: #e2e6ea;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.table-custom caption {
+  caption-side: top;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #495057;
 }
 
 /* Product */
 .product-img {
-    display: inline-block;
-    height: 200px;
-    object-fit: contain;
-    object-position: center center;
-}
-
-.truncate-text {
-    font-size: 15px;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    max-width: 200px;
-}
-
-.truncate-text:hover::after {
-    content: attr(data-fullname);
-    position: absolute;
-    left: 0;
-    top: 100%;
-    background: #333;
-    color: #fff;
-    padding: 4px 8px;
-    white-space: normal;
-    z-index: 100;
-    max-width: 250px;
-    border-radius: 4px;
-    font-size: 14px;
+  display: inline-block;
+  height: 200px;
+  object-fit: contain;
+  object-position: center center;
 }

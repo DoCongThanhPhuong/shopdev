@@ -16,8 +16,8 @@
 
 <div class="container py-5">
     <div class="row">
-      <div class="col-lg-8 mt-5">
-        <table class="table-bordered w-100 bg-light">
+      <div class="col-lg-8 mt-5 table-custom-wrapper">
+        <table class="table-custom">
           <tr class="text-center">
             <td colspan="4"><h5>Chi tiết đơn hàng</h5></td>
           </tr>
@@ -61,13 +61,13 @@
                 }
               ?>
               <tr>
-                <th colspan="5">Tổng giá trị:  <?= number_format($total_value,0,',','.') ?> VND</th>
+                <th colspan="5" scope="col">Tổng giá trị:  <?= number_format($total_value,0,',','.') ?> VND</th>
               </tr>
         </table>
         <a class="mt-5 btn btn-danger" href="index.php?navigate=cart">Trở lại</a>
       </div>
       <div class="col-lg-4 mt-5">
-      <div>
+      <div class="table-custom-wrapper">
           <form method="POST" action="pages/main/order/process_payment.php">
               <p class="mt-2 text-center">PHƯƠNG THỨC THANH TOÁN</p>
               <input class="d-block btn btn-success mt-3 w-100" type="submit" name="cod" value="Thanh toán tiền mặt (COD)">

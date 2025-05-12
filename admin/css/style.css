@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,600,700');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,600,700");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #efefef;
 }
 
@@ -128,7 +128,7 @@ ul#sidebar-menu * {
   vertical-align: middle;
 }
 
-.table-checkall input[type='checkbox'] {
+.table-checkall input[type="checkbox"] {
   cursor: pointer;
 }
 
@@ -140,7 +140,7 @@ ul#sidebar-menu * {
 
 .analytic a:not(:last-child):after {
   position: absolute;
-  content: '|';
+  content: "|";
   top: -1px;
   right: -5px;
   color: #8c8c8c;
