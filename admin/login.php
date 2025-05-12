@@ -1,7 +1,6 @@
 <?php
   include("./config/connection.php");
   session_start();
-
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
@@ -45,7 +44,7 @@
             <?php if (isset($checkLogin)) {
               echo $checkLogin;
             } else {
-              echo " ";
+              echo "";
             }
             ?>
           </p>

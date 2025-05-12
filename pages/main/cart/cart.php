@@ -1,9 +1,7 @@
 <?php
   $user_id = $_SESSION['user_id'];
-  $sql_cart = "SELECT tblproduct.product_id, tblcart_details.quantity, tblproduct.product_image, tblproduct.product_name, tblproduct.product_price, tblproduct.product_discount
-  FROM tblcart INNER JOIN tblcart_details ON tblcart.cart_id = tblcart_details.cart_id
-  INNER JOIN tblproduct ON tblcart_details.product_id = tblproduct.product_id
-  WHERE tblcart.user_id = $user_id";
+  $sql_cart = "SELECT tblproduct.product_id, tblcart.quantity, tblproduct.product_image, tblproduct.product_name, tblproduct.product_price, tblproduct.product_discount
+  FROM tblcart INNER JOIN tblproduct ON tblcart.product_id = tblproduct.product_id WHERE tblcart.user_id = $user_id";
   $query_cart = mysqli_query($mysqli, $sql_cart);
 ?>
 

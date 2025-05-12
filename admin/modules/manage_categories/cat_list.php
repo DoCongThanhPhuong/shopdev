@@ -2,18 +2,20 @@
     $sql_category_products="SELECT * FROM tblcategory ORDER BY category_id ASC";
     $query_category_products=mysqli_query($mysqli,$sql_category_products);
     if (isset($_GET['delete_id'])) {
-		$sql_check = "SELECT COUNT(*) as count FROM tblproduct WHERE category_id = '".$_GET['delete_id']."'";
-		$result = mysqli_query($mysqli, $sql_check);
-		$row_count = mysqli_num_rows($result);
-		if($row_count == 0){
-			$sql_delete = "DELETE FROM tblcategory where tblcategory.category_id = '".$_GET['delete_id']."'";
-			mysqli_query($mysqli, $sql_delete);
-		} else {
-            echo "<script>alert(\"Danh mục này có sản phẩm, không thể xóa\")</script>";
-		}
-	}
+        $delete_id = intval($_GET['delete_id']);
+        $sql_check = "SELECT COUNT(*) as count FROM tblproduct WHERE category_id = '$delete_id'";
+        $result = mysqli_query($mysqli, $sql_check);
+        $data = mysqli_fetch_assoc($result);
+    
+        if ($data['count'] == 0) {
+            $sql_delete = "DELETE FROM tblcategory WHERE category_id = '$delete_id'";
+            mysqli_query($mysqli, $sql_delete);
+        } else {
+            echo "<script>alert('Danh mục này có sản phẩm, không thể xóa');</script>";
+        }
+    }
 ?>
-    <div id="content" class="container-fluid">
+<div id="content" class="container-fluid">
     <div class="row">
         <div class="col-4">
             <div class="card">
@@ -64,3 +66,4 @@
             </div>
         </div>
     </div>
+</div>

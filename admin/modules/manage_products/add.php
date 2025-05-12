@@ -26,14 +26,14 @@
         "INSERT INTO tblproduct (
             category_id, product_name, product_description,
             product_price, product_quantity, product_image, product_discount,
-            product_brand, product_material, product_ram, product_rom,
+            brand_id, product_material, product_ram, product_rom,
             product_cpu, product_gpu, product_screen_size,
             product_screen_resolution, product_battery, product_camera,
             product_os, product_weight
         ) VALUES (
             $category_id, '$product_name', '$product_description',
             $product_price, $product_quantity, '$imageName', $product_discount,
-            '$product_brand', '$product_material', '$product_ram', '$product_rom',
+            $product_brand, '$product_material', '$product_ram', '$product_rom',
             '$product_cpu', '$product_gpu', '$product_screen_size',
             '$product_screen_resolution', '$product_battery', '$product_camera',
             '$product_os', '$product_weight'

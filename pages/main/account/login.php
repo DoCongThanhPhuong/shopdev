@@ -8,12 +8,8 @@
     $count = mysqli_num_rows($query_login);
     $row = mysqli_fetch_array($query_login);
     if ($count > 0) {
-      $id_cus = $row['user_id'];
-      $sql_cart = "SELECT * FROM tblcart where user_id = $id_cus";
-      $query_cart = mysqli_query($mysqli, $sql_cart);
-      $row_cart = mysqli_fetch_array($query_cart);
-      $_SESSION['user_id'] = $id_cus;
-      $_SESSION['cart_id'] = $row_cart['cart_id'];
+      $user_id = $row['user_id'];
+      $_SESSION['user_id'] = $user_id;
       header("location: ./index.php");
     } else {
       $alert = "Tên đăng nhập hoặc mật khẩu không chính xác!";

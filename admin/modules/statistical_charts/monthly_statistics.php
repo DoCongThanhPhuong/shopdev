@@ -5,7 +5,7 @@
     
     $subdays2 = Carbon::now('Asia/Ho_Chi_Minh')->subDays(30)->toDateString();
     $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-    $sql2 = "SELECT 
+    $sql2 = "SELECT
     DATE(order_created_at) AS NgayDat,
     COUNT(*) AS DonHang,
     SUM(order_value) AS DoanhThu FROM

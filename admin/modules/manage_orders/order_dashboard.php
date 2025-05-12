@@ -25,7 +25,7 @@
         </div>
         <div class="col">
             <div class="card text-white bg-success mb-3" style="max-width: 18rem; height: 120px;">
-                <div class="card-header">ĐƠN HÀNG ĐÃ DUYỆT</div>
+                <div class="card-header">ĐƠN HÀNG THANH TOÁN</div>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $CountOrder1 ?></h5>
                 </div>
@@ -79,11 +79,11 @@
                         <td><?php echo number_format($row['order_value'],0,',','.')?> VND</td>
                         <td><?php echo $row['order_created_at']?></td>
                         <td><?php echo $row['order_payment']?></td>
-                        <td><a href="?order=order_details&id=<?php echo $row['order_id']?>"><i class="fas fa-eye"></i></a></td>
-                        <!-- <td>
+                        <!-- <td><a href="?order=order_details&id=<?php echo $row['order_id']?>"><i class="fas fa-eye"></i></a></td> -->
+                        <td>
                             <a href="modules/manage_orders/process_order.php?process=approve&id=<?php echo $row['order_id']?>" class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-check-square"></i></a>
                             <a href="modules/manage_orders/process_order.php?process=cancel&id=<?php echo $row['order_id']?>" class="btn btn-danger btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                        </td> -->
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>

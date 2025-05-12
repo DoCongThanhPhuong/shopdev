@@ -58,7 +58,7 @@
                                 <a
                                     class="dropdown-item"
                                     href="./index.php?navigate=order_history"
-                                    >Đơn hàng</a
+                                    >Lịch sử đặt hàng</a
                                 >
                                 <a
                                     class="dropdown-item"

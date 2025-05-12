@@ -1,16 +1,11 @@
 <?php
   $user_id = $_SESSION['user_id'];
-  $cart_id = $_SESSION['cart_id'];
-  $sql_cart = "SELECT * FROM tblcart WHERE tblcart.cart_id = $cart_id";
-  $query_cart = mysqli_query($mysqli, $sql_cart);
-  $row = mysqli_fetch_array($query_cart);
-  $sql_cart_detail = 
-    "SELECT tblcart_details.product_id, tblcart_details.quantity,
+  $sql_cart_detail =
+    "SELECT tblcart.product_id, tblcart.quantity,
     tblproduct.product_name, tblproduct.product_price, tblproduct.product_discount
     FROM tblcart
-    INNER JOIN tblcart_details ON tblcart.cart_id = tblcart_details.cart_id
-    INNER JOIN tblproduct ON tblcart_details.product_id = tblproduct.product_id
-    WHERE tblcart.cart_id = $cart_id";
+    INNER JOIN tblproduct ON tblcart.product_id = tblproduct.product_id
+    WHERE tblcart.user_id = $user_id";
   $query_cart_detail = mysqli_query($mysqli, $sql_cart_detail);
   $_SESSION['order_receiver'] = $_POST['order_receiver'];
   $_SESSION['order_address'] = $_POST['order_address'];

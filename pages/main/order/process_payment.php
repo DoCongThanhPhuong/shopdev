@@ -3,7 +3,6 @@
 	require_once('config_vnpay.php');
 	session_start();
 	$user_id = $_SESSION['user_id'];
-	$cart_id = $_SESSION['cart_id'];
     date_default_timezone_set('Asia/Ho_Chi_Minh');
 	$order_created_at = date("Y-m-d H:i:s");
     $order_receiver = $_SESSION['order_receiver'];
@@ -18,8 +17,8 @@
 		$insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
 		$order_id = mysqli_insert_id($mysqli);
 		$_SESSION['order_id'] = $order_id;
-		$sql_cart = "SELECT * FROM tblcart_details 
-		where tblcart_details.cart_id = $cart_id";
+		$sql_cart = "SELECT * FROM tblcart
+		where tblcart.user_id = $user_id";
 		$query_cart = mysqli_query($mysqli, $sql_cart);
 		while ($row = mysqli_fetch_assoc($query_cart)) {
 			$product_id = $row['product_id'];
@@ -34,8 +33,7 @@
 			$sql_update = "UPDATE tblproduct set product_quantity = product_quantity - $quantity where product_id = $product_id";
 			$query_update = mysqli_query($mysqli, $sql_update);
 		}
-		$id_delete_cart = $_SESSION['cart_id'];
-		$sql_delete_all_products = "DELETE FROM tblcart_details WHERE cart_id = $id_delete_cart";
+		$sql_delete_all_products = "DELETE FROM tblcart WHERE user_id = $user_id";
 		$delete_result = mysqli_query($mysqli, $sql_delete_all_products);
 		unset($_SESSION['total_value']);
 		header('location: ../../../index.php?navigate=finish');
@@ -91,8 +89,8 @@
 			$insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
 			$order_id = mysqli_insert_id($mysqli);
 			$_SESSION['order_id'] = $order_id;
-			$sql_cart = "SELECT * FROM tblcart_details 
-			where tblcart_details.cart_id = $cart_id";
+			$sql_cart = "SELECT * FROM tblcart
+			where tblcart.user_id = $user_id";
 			$query_cart = mysqli_query($mysqli, $sql_cart);
 			while ($row = mysqli_fetch_assoc($query_cart)) {
 				$product_id = $row['product_id'];
@@ -107,8 +105,7 @@
 				$sql_update = "UPDATE tblproduct set product_quantity = product_quantity - $quantity where product_id = $product_id";
 				$query_update = mysqli_query($mysqli, $sql_update);
 			}
-			$id_delete_cart = $_SESSION['cart_id'];
-			$sql_delete_all_products = "DELETE FROM tblcart_details WHERE cart_id = $id_delete_cart";
+			$sql_delete_all_products = "DELETE FROM tblcart WHERE user_id = $user_id";
 			$delete_result = mysqli_query($mysqli, $sql_delete_all_products);
 			unset($_SESSION['total_value']);
 		}

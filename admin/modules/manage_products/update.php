@@ -33,14 +33,14 @@
             mysqli_query($mysqli, $sql_update_anh);
         }
         $sql_update = "
-        UPDATE tblproduct SET 
+        UPDATE tblproduct SET
             category_id = $category_id,
             product_name = '$product_name',
             product_description = '$product_description',
             product_quantity = $product_quantity,
             product_price = $product_price,
             product_discount = $product_discount,
-            product_brand = '$product_brand',
+            brand_id = '$product_brand',
             product_material = '$product_material',
             product_ram = '$product_ram',
             product_rom = '$product_rom',

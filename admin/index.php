@@ -49,7 +49,7 @@
                         <li class="nav-link">
                             <a href="index.php">
                                 <div class="nav-link-icon d-inline-flex"><i class="fas fa-chart-bar"></i></div>
-                                Bảng thống kê
+                                Thống kê
                             </a>
                         </li>
 
