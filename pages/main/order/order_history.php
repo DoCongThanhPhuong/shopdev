@@ -9,7 +9,7 @@ if (isset($_SESSION['user_id'])) {
 <div class="container min-height-100">
   <div class="row">
     <div class="col-md-12 mt-3 table-custom-wrapper">
-      <h5 class="text-center">Lịch sử đơn hàng</h5>
+      <h5 class="text-center">Lịch sử đặt hàng</h5>
       <table class="table-custom">
         <thead>
           <tr class="text-center">
@@ -28,8 +28,8 @@ if (isset($_SESSION['user_id'])) {
           $i=0;
         while($row_getOrder = mysqli_fetch_array($query_getOrder)){
           $i++;
-          if($row_getOrder['order_status'] == 0) {$status = "Chờ duyệt"; $style = "text-warning";}
-          elseif($row_getOrder['order_status'] == 1) {$status = "Đã duyệt"; $style = "text-success";}
+          if($row_getOrder['order_status'] == 0) {$status = "Chờ thanh toán"; $style = "text-warning";}
+          elseif($row_getOrder['order_status'] == 1) {$status = "Đã thanh toán"; $style = "text-success";}
           else {$status = "Đã hủy"; $style = "text-danger";}
         ?>
             <td><?php echo $i ?></td>
@@ -47,7 +47,7 @@ if (isset($_SESSION['user_id'])) {
         }
         else {
           ?>
-          <h4 class="text-center">No order history</h4>
+          <h4 class="text-center">Bạn chưa có đơn hàng</h4>
           <?php
         }
         ?>

@@ -24,7 +24,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
-                <th scope="col">SL</th>
+                <th scope="col">Số lượng</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Xóa</th>
               </tr>
