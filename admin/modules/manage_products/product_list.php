@@ -12,11 +12,11 @@
     $begin = ($page - 1) * $limit;
 
     if ($keyword != '') {
-        $sql_product = "SELECT * FROM tblproduct WHERE product_name LIKE '%$keyword%' ORDER BY product_id DESC LIMIT $begin, $limit";
-        $sql_count = "SELECT * FROM tblproduct WHERE product_name LIKE '%$keyword%'";
+        $sql_product = "SELECT * FROM tblproduct WHERE product_name LIKE '%$keyword%' AND product_is_deleted = 0 ORDER BY product_id DESC LIMIT $begin, $limit";
+        $sql_count = "SELECT * FROM tblproduct WHERE product_name LIKE '%$keyword%' AND product_is_deleted = 0";
     } else {
-        $sql_product = "SELECT * FROM tblproduct ORDER BY product_id DESC LIMIT $begin, $limit";
-        $sql_count = "SELECT * FROM tblproduct";
+        $sql_product = "SELECT * FROM tblproduct WHERE product_is_deleted = 0 ORDER BY product_id DESC LIMIT $begin, $limit";
+        $sql_count = "SELECT * FROM tblproduct WHERE product_is_deleted = 0";
     }
 
     $query_product = mysqli_query($mysqli, $sql_product);
@@ -42,9 +42,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Hình ảnh</th>
                             <th>Tên</th>
                             <th>Số lượng</th>
+                            <th>Đã bán</th>
                             <th>Giá</th>
                             <th>Giảm giá</th>
                             <th>Sửa/Xóa</th>
@@ -58,12 +58,9 @@
                         ?>
                         <tr>
                             <td><?php echo $i ?></td>
-                            <td>
-                                <img class="product-img" src="../assets/images/products/<?php echo $row['product_image']; ?>"
-                                     alt="<?php echo $row['product_name']; ?>" width="80">
-                            </td>
                             <td class="truncate-text"><?php echo $row['product_name']; ?></td>
                             <td><?php echo $row['product_quantity']; ?></td>
+                            <td><?php echo $row['product_sold']; ?></td>
                             <td><?php echo number_format($row['product_price'], 0, ',', '.'); ?>đ</td>
                             <td><?php echo $row['product_discount']; ?>%</td>
                             <td>

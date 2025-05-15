@@ -147,10 +147,11 @@ ul#sidebar-menu * {
 }
 
 .truncate-text {
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 224px;
+  max-width: 180px;
 }
 
 .product-img {
