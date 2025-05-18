@@ -43,7 +43,7 @@
                         <ul class="list-group list-group-flush mb-3">
                             <li class="list-group-item">Màn hình: <?php echo $row_product['product_screen_size']; ?> inch</li>
                             <li class="list-group-item">Độ phân giải: <?php echo $row_product['product_screen_resolution']; ?></li>
-                            <li class="list-group-item">Pin: <?php echo $row_product['product_battery']; ?> mAh</li>
+                            <li class="list-group-item">Pin: <?php echo $row_product['product_battery']; ?> Wh</li>
                             <li class="list-group-item">Trọng lượng: <?php echo $row_product['product_weight']; ?> kg</li>
                         </ul>
                     </div>

@@ -29,7 +29,7 @@
                         <div class="form-group"><label for="product_gpu">GPU</label><input class="form-control" required type="text" name="product_gpu" id="product_gpu"></div>
                         <div class="form-group"><label for="product_screen_size">Kích thước màn hình (inch)</label><input class="form-control" required type="number" step="0.1" min="0" name="product_screen_size" id="product_screen_size"></div>
                         <div class="form-group"><label for="product_screen_resolution">Độ phân giải màn hình</label><input class="form-control" required type="text" name="product_screen_resolution" id="product_screen_resolution"></div>
-                        <div class="form-group"><label for="product_battery">Pin</label><input class="form-control" required type="text" name="product_battery" id="product_battery"></div>
+                        <div class="form-group"><label for="product_battery">Pin (Wh)</label><input class="form-control" required type="text" name="product_battery" id="product_battery"></div>
                         <div class="form-group"><label for="product_camera">Camera</label><input class="form-control" required type="text" name="product_camera" id="product_camera"></div>
                         <div class="form-group"><label for="product_os">Hệ điều hành</label><input class="form-control" required type="text" name="product_os" id="product_os"></div>
                         <div class="form-group"><label for="product_weight">Trọng lượng (kg)</label><input class="form-control" required type="number" step="0.01" min="0" name="product_weight" id="product_weight"></div>
