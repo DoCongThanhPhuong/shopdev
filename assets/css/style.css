@@ -240,6 +240,24 @@ body {
   color: #495057;
 }
 
+/* Form */
+form .form-control,
+form .form-select {
+  border-radius: 4px;
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+form .btn {
+  border-radius: 4px;
+}
+
 /* Product */
 .product-img {
   display: inline-block;
