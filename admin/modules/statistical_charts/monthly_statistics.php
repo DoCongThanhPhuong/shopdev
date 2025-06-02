@@ -9,7 +9,7 @@
     DATE(order_created_at) AS NgayDat,
     COUNT(*) AS DonHang,
     SUM(order_value) AS DoanhThu FROM
-    tblorder WHERE order_status = '1' AND
+    tblorder WHERE order_status = '4' AND
     DATE(order_created_at) BETWEEN '$subdays2' AND '$now'
     GROUP BY DATE(order_created_at)";
     $sql_query2 = mysqli_query($mysqli, $sql2);

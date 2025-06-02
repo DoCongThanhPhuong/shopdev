@@ -54,7 +54,7 @@
         </tr>
     </table>
     <?php
-        if($row['order_status'] == 0)  {
+        if($row['order_status'] == 1)  {
     ?>
     <div class="text-center mt-2">
         <a class="btn btn-danger" href="pages/main/order/cancel.php?id_cancel=<?= $order_id?>">Hủy</a>

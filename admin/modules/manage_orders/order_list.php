@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['process'])) {
-        $query_order = mysqli_query($mysqli,"SELECT * FROM tblorder where order_status = '2' order by order_id DESC");
+        $query_order = mysqli_query($mysqli,"SELECT * FROM tblorder where order_status = '3' order by order_id DESC");
         $title = "Đơn hàng đã hủy";
     } else {
         $query_order = mysqli_query($mysqli,"SELECT * FROM tblorder where order_status = '1' order by order_id DESC");

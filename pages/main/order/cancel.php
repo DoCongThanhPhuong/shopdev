@@ -2,7 +2,7 @@
     include("../../../admin/config/connection.php");
     session_start();
     $order_id = $_GET['id_cancel'];
-    $sql_cancel = "UPDATE tblorder SET order_status = 2 WHERE order_id = $order_id";
+    $sql_cancel = "UPDATE tblorder SET order_status = 3 WHERE order_id = $order_id";
     $query_cancel = mysqli_query($mysqli, $sql_cancel);
     $sql_order = "SELECT * FROM tblorder_details 
 	where tblorder_details.order_id = $order_id";
