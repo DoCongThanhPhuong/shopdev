@@ -33,7 +33,7 @@ if (isset($_SESSION['user_id'])) {
               $i++;
               switch ($row_getOrder['order_status']) {
                 case 0:
-                  $status = "Thất bại";
+                  $status = "Chờ thanh toán";
                   $style = "text-danger";
                   break;
                 case 1:

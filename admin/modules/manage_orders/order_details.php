@@ -12,7 +12,7 @@
     $query_order_detail = mysqli_query($mysqli, $sql_order_detail);
 
     $statusMap = [
-        0 => 'Thất bại',
+        0 => 'Chờ thanh toán',
         1 => 'Đã thanh toán',
         2 => 'Đang giao',
         3 => 'Đã hủy',
@@ -74,7 +74,7 @@
         </table>
 
         <div class="text-center mb-3">
-            <?php if ($row['order_status'] == 1): ?>
+            <?php if ($row['order_status'] == 0 || $row['order_status'] == 1): ?>
                 <a class="btn btn-primary" href="modules/manage_orders/process_order.php?id=<?= $order_id ?>&process=deliver">Giao hàng</a>
             <?php elseif ($row['order_status'] == 2): ?>
                 <a class="btn btn-secondary" href="modules/manage_orders/process_order.php?id=<?= $order_id ?>&process=received">Đã giao</a>

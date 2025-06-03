@@ -15,7 +15,7 @@
     $query_order_details = mysqli_query($mysqli, $sql_order_details);
 
     $statusMap = [
-        0 => 'Thất bại',
+        0 => 'Chờ thanh toán',
         1 => 'Đã thanh toán',
         2 => 'Đang giao',
         3 => 'Đã hủy',

@@ -1,7 +1,7 @@
 <?php
 $statusMap = [
     '' => 'Tất cả',
-    '0' => 'Thất bại',
+    '0' => 'Chờ thanh toán',
     '1' => 'Đã thanh toán',
     '2' => 'Đang giao',
     '3' => 'Đã hủy',
