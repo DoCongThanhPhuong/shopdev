@@ -99,7 +99,7 @@
 				where product_id = $product_id";
 				$query_product = mysqli_query($mysqli, $sql_product);
 				$row_product = mysqli_fetch_assoc($query_product);
-				$purchase_price = $row_product['product_price'] * (100-$row_product['product_discount'])/100;
+				$purchase_price = $row_product['product_price'] * (100 - $row_product['product_discount'])/100;
 				$sql_insert_order_detail = "INSERT INTO tblorder_details (order_id, product_id, quantity, order_code, purchase_price) VALUES ('$order_id', '$product_id', '$quantity', '$order_code', '$purchase_price')";
 				$insert_detail_result = mysqli_query($mysqli, $sql_insert_order_detail);
 				$sql_update = "UPDATE tblproduct set product_quantity = product_quantity - $quantity where product_id = $product_id";

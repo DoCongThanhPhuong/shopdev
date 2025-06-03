@@ -1,7 +1,7 @@
 <?php
 	include("../../config/connection.php");
     $process = $_GET['process'];
-	if (isset($_GET['id']) && $process =='cancel')
+	if (isset($_GET['id']) && $process =='deliver')
     {
         $order_id = $_GET['id'];
         $sql_order = "UPDATE tblorder SET order_status = '2' where order_id = $order_id";
@@ -19,11 +19,10 @@
 	    header('location:../../index.php?order=order_dashboard');
 	}
     
-	if(isset($_GET['id']) && $process =='approve')
+	if(isset($_GET['id']) && $process =='refund')
     {
 		$order_id=$_GET['id'];
-        $order_status=1;
-        $sql_order="UPDATE tblorder SET order_status='".$order_status."' where order_id = $order_id";
+        $sql_order="UPDATE tblorder SET order_status='5' where order_id = $order_id";
         mysqli_query($mysqli,$sql_order);
         header('location: ../../index.php?order=order_dashboard');
 	}

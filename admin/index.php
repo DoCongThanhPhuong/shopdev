@@ -77,8 +77,7 @@
                             </a>
                             <i class="arrow fas fa-angle-right"></i>
                             <ul class="sub-menu">
-                                <li><a href="?order=order_list">Đã duyệt</a></li>
-                                <li><a href="?order=order_list&process=cancel">Đã hủy</a></li>
+                                <li><a href="?order=order_list">Danh sách đơn hàng</a></li>
                             </ul>
                         </li>
                         <li class="nav-link">
