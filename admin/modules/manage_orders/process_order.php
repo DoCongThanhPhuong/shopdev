@@ -26,4 +26,12 @@
         mysqli_query($mysqli,$sql_order);
         header('location: ../../index.php?order=order_dashboard');
 	}
+
+	if(isset($_GET['id']) && $process =='received')
+    {
+		$order_id=$_GET['id'];
+        $sql_order="UPDATE tblorder SET order_status='4' where order_id = $order_id";
+        mysqli_query($mysqli,$sql_order);
+        header('location: ../../index.php?order=order_dashboard');
+	}
 ?>

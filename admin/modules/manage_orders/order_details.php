@@ -76,6 +76,8 @@
         <div class="text-center mb-3">
             <?php if ($row['order_status'] == 1): ?>
                 <a class="btn btn-primary" href="modules/manage_orders/process_order.php?id=<?= $order_id ?>&process=deliver">Giao hàng</a>
+            <?php elseif ($row['order_status'] == 2): ?>
+                <a class="btn btn-secondary" href="modules/manage_orders/process_order.php?id=<?= $order_id ?>&process=received">Đã giao</a>
             <?php elseif ($row['order_status'] == 3): ?>
                 <a class="btn btn-secondary" href="modules/manage_orders/process_order.php?id=<?= $order_id ?>&process=refund">Đã hoàn tiền</a>
             <?php endif; ?>
