@@ -65,7 +65,7 @@
             <img src="./assets/images/banners/feedback1.jpg" class="img-fluid p-4" alt="Feedback 1" />
           </div>
           <div class="card-body">
-            <h3 class="card-title">Phương Đỗ</h3>
+            <h3 class="card-title">Công Tiệp</h3>
             <p class="card-text">
               "Giao diện dễ sử dụng, tôi dễ dàng chọn được chiếc laptop phù hợp với nhu cầu học online. 
               Giao hàng nhanh và đóng gói cẩn thận."

@@ -13,7 +13,7 @@
     if(isset($_POST['cod'])){
 		$order_payment = 'cod';
 		$order_code = rand(1, 10000);
-		$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
+		$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code, order_status) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code', 0)";
 		$insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
 		$order_id = mysqli_insert_id($mysqli);
 		$_SESSION['order_id'] = $order_id;
@@ -85,7 +85,7 @@
 			$vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);
 			$vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
 			$order_payment = 'vnpay';
-			$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
+			$sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code, order_status) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code', 1)";
 			$insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
 			$order_id = mysqli_insert_id($mysqli);
 			$_SESSION['order_id'] = $order_id;
