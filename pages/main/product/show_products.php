@@ -11,6 +11,7 @@
   }
 
   $conditions = [];
+  $conditions[] = "product_is_deleted = 0";
   $limit = "LIMIT $begin, 8";
 
   if (isset($_GET['category_id']) && $_GET['category_id'] != '') {

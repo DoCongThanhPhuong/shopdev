@@ -5,7 +5,7 @@
         $sql_delete = "UPDATE tblproduct SET product_is_deleted = 1 WHERE product_id = '$id'";
         $delete_result = mysqli_query($mysqli, $sql_delete);
         if($delete_result){
-            header("location: ../product_list.php");
+            header('location: ../../index.php?product=product_list');
         }
     }
 ?>

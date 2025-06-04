@@ -1,5 +1,5 @@
 <?php
-    $sql_CountOrder1 = mysqli_query($mysqli,"SELECT * FROM tblorder WHERE order_status  = '1'");
+    $sql_CountOrder1 = mysqli_query($mysqli,"SELECT * FROM tblorder WHERE order_status  = '0' OR order_status = '1'");
     $CountOrder1 = mysqli_num_rows($sql_CountOrder1);
     $sql_AllMoney = mysqli_query($mysqli,"SELECT order_value FROM tblorder where order_status = '4'");
     $i=0;
@@ -24,15 +24,15 @@
              </div>
         </div>
         <div class="col">
-            <div class="card text-white bg-success mb-3" style="max-width: 18rem; height: 120px;">
-                <div class="card-header">ĐƠN ĐÃ THANH TOÁN</div>
+            <div class="card text-white bg-warning mb-3" style="max-width: 18rem; height: 120px;">
+                <div class="card-header">ĐƠN CHỜ GIAO</div>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $CountOrder1 ?></h5>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="card text-white bg-danger mb-3" style="max-width: 18rem; height: 120px;">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem; height: 120px;">
                 <div class="card-header">ĐƠN ĐÃ GIAO</div>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $CountOrder2 ?></h5>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem; height: 120px;">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem; height: 120px;">
                 <div class="card-header">ĐƠN ĐÃ HỦY</div>
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $CountOrder3 ?></h5>
@@ -50,7 +50,7 @@
 </div>
     <div class="card">
         <p class="card-header font-weight-bold">
-            Đơn hàng đã thanh toán
+            Đơn hàng chờ giao
         </p>
         <div class="card-body">
             <table class="table table-striped">

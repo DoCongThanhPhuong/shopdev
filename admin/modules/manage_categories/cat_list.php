@@ -1,20 +1,8 @@
 <?php
-    $sql_category_products="SELECT * FROM tblcategory ORDER BY category_id ASC";
+    $sql_category_products="SELECT * FROM tblcategory ORDER BY category_id DESC";
     $query_category_products=mysqli_query($mysqli,$sql_category_products);
-    if (isset($_GET['delete_id'])) {
-        $delete_id = intval($_GET['delete_id']);
-        $sql_check = "SELECT COUNT(*) as count FROM tblproduct WHERE category_id = '$delete_id'";
-        $result = mysqli_query($mysqli, $sql_check);
-        $data = mysqli_fetch_assoc($result);
-    
-        if ($data['count'] == 0) {
-            $sql_delete = "DELETE FROM tblcategory WHERE category_id = '$delete_id'";
-            mysqli_query($mysqli, $sql_delete);
-        } else {
-            echo "<script>alert('Danh mục này có sản phẩm, không thể xóa');</script>";
-        }
-    }
 ?>
+
 <div id="content" class="container-fluid">
     <div class="row">
         <div class="col-4">
@@ -42,21 +30,21 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Tên danh mục</th>
                                 <th scope="col">Sửa/Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i=0;
+                            <?php $i=1;
                             while ($row_category_products=mysqli_fetch_array($query_category_products)) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $row_category_products['category_id']?></td>
+                                    <td><?php echo $i++?></td>
                                     <td><?php echo $row_category_products['category_name']?></td>
                                     <td class="d-flex">
                                         <a href="?cat=change_cat_name&id=<?php echo $row_category_products['category_id']?>" class="btn btn-warning btn-sm text-white mr-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="?cat=cat_list&delete_id=<?php echo $row_category_products['category_id']?>" class="btn btn-danger btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        <a href="modules/manage_categories/delete.php?delete_id=<?php echo $row_category_products['category_id']?>" class="btn btn-danger btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

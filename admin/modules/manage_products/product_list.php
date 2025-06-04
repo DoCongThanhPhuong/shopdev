@@ -100,7 +100,7 @@
                                         <a href="?product=update_product&id=<?= $row['product_id'] ?>" class="btn btn-warning btn-sm mr-2">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="?product=delete_product&id=<?= $row['product_id'] ?>" class="btn btn-danger btn-sm"
+                                        <a href="modules/manage_products/delete_product.php?id=<?= $row['product_id'] ?>" class="btn btn-danger btn-sm"
                                            onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">
                                             <i class="fa fa-trash"></i>
                                         </a>
