@@ -21,8 +21,6 @@ if (isset($_POST['submit'])) {
       VALUES('" . $username . "','" . md5($password) . "','" . $email . "','" . $fullname . "','" . $address . "','" . $phonenumber . "','" . $created_at . "')";
       mysqli_query($mysqli, $sql_add);
       $user_id = mysqli_insert_id($mysqli);
-      $sql_insert_cart = "INSERT INTO tblcart(user_id) VALUES (" . $user_id . ")";
-      mysqli_query($mysqli, $sql_insert_cart);
       header('location: index.php?navigate=login');
     }
   }

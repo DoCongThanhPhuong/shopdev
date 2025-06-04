@@ -76,7 +76,7 @@ if (isset($_SESSION['user_id'])) {
       <?php
       } else {
       ?>
-        <h4 class="text-center">Bạn chưa có đơn hàng</h4>
+        <p class="mt-3 text-center">Bạn chưa có đơn hàng</p>
       <?php
       }
       ?>
