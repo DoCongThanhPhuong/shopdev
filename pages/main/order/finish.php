@@ -20,7 +20,7 @@
 		$orderInfo = $_GET['orderInfo'];
 		$orderType = $_GET['orderType'];
 		$transId = $_GET['transId'];
-		$payType = $_GET['payType'];
+		$payType = 'MoMo';
 
 		$insert_momo = "INSERT INTO tblmomo (PartnerCode, OrderId, Amount, OrderInfo, OrderType, TransId, PayType, order_code)
 		VALUES ('$partnerCode', '$orderId', '$amount', '$orderInfo', '$orderType', '$transId', '$payType', '$order_code')";
@@ -35,7 +35,7 @@
       $order_phone = $_SESSION['order_phone'];
       $order_notes = isset($_SESSION['order_notes']) ? $_SESSION['order_notes'] : "";
       $order_payment = 'momo';
-      $sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code')";
+      $sql_insert_invoice = "INSERT INTO tblorder(user_id,order_created_at,order_address,order_value,order_phone,order_receiver,order_payment, order_code, order_status) VALUES('".$user_id."','".$order_created_at."','".$order_address."','".$order_value."','".$order_phone."', '".$order_receiver."', '".$order_payment."', '$order_code', 1)";
       $insert_invoice_result = mysqli_query($mysqli, $sql_insert_invoice);
       $order_id = mysqli_insert_id($mysqli);
       $_SESSION['order_id'] = $order_id;
